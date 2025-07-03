@@ -1,15 +1,16 @@
 {
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "dev": "turbo run dev --filter=!docs --concurrency 11 --no-cache --continue",
+    "dev:storybook": "turbo run preview-storybook",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "preview-storybook": "turbo run preview-storybook"
+    "publish-package": "bash scripts/publish.sh",
+    "create-component": "bash scripts/create-component.sh"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

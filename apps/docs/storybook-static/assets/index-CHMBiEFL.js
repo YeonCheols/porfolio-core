@@ -1,1 +1,0 @@
-import{j as n}from"./jsx-runtime-DBhXMc9n.js";function t({children:e,...o}){return n.jsx("button",{type:"button",...o,children:e})}t.displayName="Button";t.__docgenInfo={description:"",methods:[],displayName:"Button",props:{children:{required:!0,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""}}};export{t as B};
