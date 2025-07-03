@@ -20,7 +20,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@albamon/admin-core':
+      '@portfolio-core/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       react:
@@ -30,12 +30,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@repo/eslint-config':
+      '@portfolio-core/esconfig':
         specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@repo/typescript-config':
+        version: link:../../packages/esconfig
+      '@portfolio-core/tsconfig':
         specifier: workspace:*
-        version: link:../../packages/typescript-config
+        version: link:../../packages/tsconfig
       '@storybook/addon-actions':
         specifier: ^8.2.6
         version: 8.6.4(storybook@8.6.4)
@@ -70,7 +70,7 @@ importers:
         specifier: ^5.1.4
         version: 5.4.14
 
-  packages/eslint-config:
+  packages/esconfig:
     devDependencies:
       '@vercel/style-guide':
         specifier: ^5.2.0
@@ -88,7 +88,7 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(eslint@8.57.1)(typescript@5.5.4)
 
-  packages/typescript-config: {}
+  packages/tsconfig: {}
 
   packages/ui:
     dependencies:
@@ -129,12 +129,12 @@ importers:
         specifier: 4.3.3
         version: 4.3.3(react@18.2.0)
     devDependencies:
-      '@repo/eslint-config':
+      '@portfolio-core/esconfig':
         specifier: workspace:*
-        version: link:../eslint-config
-      '@repo/typescript-config':
+        version: link:../esconfig
+      '@portfolio-core/tsconfig':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../tsconfig
       '@types/lodash-es':
         specifier: 4.17.6
         version: 4.17.6
