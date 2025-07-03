@@ -9,10 +9,12 @@ ui_dir="packages/ui/src/components/$component_name"
 
 mkdir "$ui_dir"
 printf ".%s {\n}" "$styled_name" >>"$ui_dir/index.module.scss"
-echo "export interface ${component_name}Props {}';
+echo "import { cn } from '../../utils/merge';
+
+export interface ${component_name}Props {}
 
 function $component_name({}: ${component_name}Props) {
-    return <div></div>;
+    return <div className={cn()}></div>;
 }
 
 export default $component_name

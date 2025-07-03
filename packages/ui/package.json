@@ -18,34 +18,36 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "@mui/base": "5.0.0-alpha.94",
     "@mui/icons-material": "5.10.2",
     "@mui/material": "5.10.2",
     "@mui/system": "5.10.2",
     "@mui/x-date-pickers": "5.0.0-alpha.7",
     "@mui/x-tree-view": "7.0.0",
-    "react-kakao-maps-sdk": "1.1.4",
+    "clsx": "^2.1.1",
     "lodash-es": "4.17.21",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-kakao-maps-sdk": "1.1.4",
+    "tailwind-merge": "^3.3.1",
     "uuid": "8.3.2",
     "zustand": "4.3.3"
   },
   "devDependencies": {
     "@portfolio-core/esconfig": "workspace:*",
+    "@portfolio-core/tsconfig": "workspace:*",
+    "@types/lodash-es": "4.17.6",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
+    "@types/uuid": "8.3.4",
     "eslint": "^8.57.0",
-    "@portfolio-core/tsconfig": "workspace:*",
     "tsup": "^8.0.2",
-    "typescript": "5.5.4",
-    "@types/lodash-es": "4.17.6",
-    "@types/uuid": "8.3.4"
+    "typescript": "5.5.4"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@mui/material": "^5.10.2",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
