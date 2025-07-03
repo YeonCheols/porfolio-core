@@ -8,7 +8,7 @@ story_dir='apps/docs/stories'
 ui_dir="packages/ui/src/components/$component_name"
 
 mkdir "$ui_dir"
-printf ".%s {\n}" "$styled_name" >>"$ui_dir/index.module.scss"
+# printf ".%s {\n}" "$styled_name" >>"$ui_dir/index.module.scss"
 echo "import { cn } from '../../utils/merge';
 
 export interface ${component_name}Props {}
@@ -19,26 +19,23 @@ function $component_name({}: ${component_name}Props) {
 
 export default $component_name
 " >>"$ui_dir/index.tsx"
-echo "import { $component_name, ${component_name}Props } from '@ui';
-import { Meta, StoryObj } from '@storybook/react';
+echo "import type { Meta, StoryObj } from '@storybook/react';
+import { $component_name, ${component_name}Props } from '@ui';
 
-const story: Meta<${component_name}Props> = {
-    component: $component_name,
-    title: 'Components/$component_name',
-    parameters: {
-        docs: {
-            description: {
-                component: 'ADD_YOUR_DESCRIPTION',
-            },
-        },
-    },
+const meta = {
+  component: $component_name,
+  argTypes: {},
+} satisfies Meta<typeof $component_name>;
+
+export default meta;
+
+type Story = StoryObj<${component_name}Props>;
+
+export const Primary: Story = {
+  render: (props: ${component_name}Props) => <$component_name {...props} />,
+  name: '$component_name',
+  args: {},
 };
-
-export default story;
-
-export const Default: StoryObj<${component_name}Props> = {
-    args: {},
-};" >>"$story_dir/$component_name.stories.tsx"
 
 found=0
 next_component=''
