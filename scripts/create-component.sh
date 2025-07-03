@@ -9,15 +9,10 @@ ui_dir="packages/ui/src/components/$component_name"
 
 mkdir "$ui_dir"
 printf ".%s {\n}" "$styled_name" >>"$ui_dir/index.module.scss"
-echo "import { classNamesWithRoot } from '@bossmon/utils';
-import styles from './index.module.scss';
-
-export interface ${component_name}Props {}
-
-const cx = classNamesWithRoot(styles, '$styled_name')
+echo "export interface ${component_name}Props {}';
 
 function $component_name({}: ${component_name}Props) {
-    return <div className={cx()}></div>;
+    return <div></div>;
 }
 
 export default $component_name
