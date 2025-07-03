@@ -1,6 +1,6 @@
 {
-  "name": "@albamon/admin-core",
-  "version": "0.0.12",
+  "name": "@portfolio-core/ui",
+  "version": "0.0.1",
   "sideEffects": false,
   "license": "MIT",
   "main": "./dist/index.js",
@@ -41,9 +41,6 @@
     "typescript": "5.5.4",
     "@types/lodash-es": "4.17.6",
     "@types/uuid": "8.3.4"
-  },
-  "publishConfig": {
-    "registry": "https://repository.01.mgt.iconic.albamon.com/repository/albamon-npm-test-hosted/"
   },
   "peerDependencies": {
     "react": "^18.2.0",
