@@ -10,5 +10,5 @@ if confirm 'Install packages?'; then
     pnpm install --frozen-lockfile
 fi
 
-pnpm build --filter=@bossmon/docs
+pnpm build --filter=docs
 pm2 restart storybook
