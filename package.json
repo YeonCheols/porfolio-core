@@ -1,5 +1,5 @@
 {
-  "name": "pofolio-core",
+  "name": "@portfolio-core/root",
   "version": "0.0.0",
   "packageManager": "pnpm@10.0.0",
   "private": false,
