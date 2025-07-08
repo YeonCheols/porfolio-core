@@ -18,5 +18,5 @@
     "turbo": "^2.4.4"
   },
   "name": "@pofolio-core",
-  "packageManager": "pnpm@8.0.0"
+  "packageManager": "pnpm@10.0.0"
 }
