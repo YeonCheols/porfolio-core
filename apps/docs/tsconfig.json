@@ -1,5 +1,5 @@
 {
-  "extends": "@portfolio-core/tsconfig/react-app.json",
+  "extends": "@YeonCheols/portfolio-core/tsconfig/react-app.json",
   "include": [".", "stories/**/*.ts", "stories/**/*.tsx"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
