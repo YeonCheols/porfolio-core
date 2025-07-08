@@ -3,7 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --filter=!docs --concurrency 11 --no-cache --continue",
-    "dev:storybook": "turbo run preview-storybook",
+    "dev:storybook": "turbo run dev --concurrency 11 --no-cache --continue",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
