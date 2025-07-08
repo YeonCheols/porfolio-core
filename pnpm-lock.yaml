@@ -20,7 +20,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@portfolio-core/ui':
+      '@YeonCheols/portfolio-core/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       react:
@@ -30,10 +30,10 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@portfolio-core/esconfig':
+      '@YeonCheols/portfolio-core/esconfig':
         specifier: workspace:*
         version: link:../../packages/esconfig
-      '@portfolio-core/tsconfig':
+      '@YeonCheols/portfolio-core/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@storybook/addon-actions':
@@ -138,10 +138,10 @@ importers:
         specifier: 4.3.3
         version: 4.3.3(react@18.2.0)
     devDependencies:
-      '@portfolio-core/esconfig':
+      '@YeonCheols/portfolio-core/esconfig':
         specifier: workspace:*
         version: link:../esconfig
-      '@portfolio-core/tsconfig':
+      '@YeonCheols/portfolio-core/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/lodash-es':
