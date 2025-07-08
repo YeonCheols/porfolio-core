@@ -20,7 +20,6 @@ export const Primary: Story = {
     <BasicButton
       {...props}
       onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
         alert("Hello from Turborepo!");
       }}
     >
