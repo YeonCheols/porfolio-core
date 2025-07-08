@@ -1,4 +1,7 @@
 {
+  "name": "@pofolio-core",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.0.0",
   "private": false,
   "scripts": {
     "build": "turbo run build",
@@ -16,7 +19,5 @@
     "@changesets/cli": "^2.27.1",
     "prettier": "^3.2.5",
     "turbo": "^2.4.4"
-  },
-  "name": "@pofolio-core",
-  "packageManager": "pnpm@10.0.0"
+  }
 }
