@@ -5,6 +5,7 @@
   "private": false,
   "scripts": {
     "build": "turbo run build",
+    "build:storybook": "turbo run build --filter=@YeonCheols/portfolio-core/docs",
     "dev": "turbo run dev --filter=!docs --concurrency 11 --no-cache --continue",
     "dev:storybook": "turbo run dev --concurrency 11 --no-cache --continue",
     "clean": "turbo run clean && rm -rf node_modules",
