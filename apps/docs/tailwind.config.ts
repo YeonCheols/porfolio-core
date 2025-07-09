@@ -3,14 +3,11 @@ import tailwindcssAnimate from "tailwindcss-animate";
 import { Config } from "tailwindcss/types";
 
 const config = {
-  darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "../../apps/docs/.storybook/*.{js}",
-    "../../apps/docs/stories/*.{ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui/src/**/*.{js,ts,jsx,tsx}",
+    "./stories/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
