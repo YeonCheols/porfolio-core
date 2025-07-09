@@ -17,5 +17,6 @@ export const Primary: Story = {
     icon: "SiReact",
     name: "React",
     color: "text-sky-500",
+    size: 24,
   },
 };
