@@ -10,8 +10,8 @@ dist-ssr
 .cache
 server/dist
 public/dist
+apps/docs/storybook-static/
 
-.apps/docs/storybook-static/
 **/backstop_data/html_report
 **/backstop_data/bitmaps_test
 
