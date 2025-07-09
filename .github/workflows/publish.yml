@@ -14,6 +14,10 @@ on:
         options:
           - "yes"
           - "no"
+      package_path:
+        description: "배포할 패키지 경로 (예: packages/ui)"
+        required: true
+        default: "packages/ui"
 
 jobs:
   build:
@@ -59,6 +63,7 @@ jobs:
       - name: Check if version already exists
         id: version-check
         run: |
+          cd "${{ github.event.inputs.package_path }}"
           PKG_NAME=$(jq -r .name package.json)
           PKG_VERSION=$(jq -r .version package.json)
           EXISTS=$(npm view $PKG_NAME@$PKG_VERSION --registry=https://npm.pkg.github.com/ 2>/dev/null || echo "notfound")
@@ -71,6 +76,8 @@ jobs:
 
       - name: Publish to GitHub Packages
         if: steps.version-check.outputs.exists == 'false'
-        run: pnpm publish --registry=https://npm.pkg.github.com/
+        run: |
+          cd "${{ github.event.inputs.package_path }}"
+          pnpm publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
