@@ -18,19 +18,18 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/master'
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      
+
     runs-on: ubuntu-latest
 
     permissions:
       contents: read
       pages: write
       id-token: write
-
-    runs-on: ubuntu-latest
 
     steps:
       # 1. 리포지토리 체크아웃
