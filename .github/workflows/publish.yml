@@ -58,12 +58,19 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
       - uses: pnpm/action-setup@v4
-      - run: pnpm install
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install & Build package
+        run: |
+          pnpm install
+          pnpm build
+        working-directory: ${{ github.event.inputs.package_path }}
 
       - name: Check if version already exists
         id: version-check
         run: |
-          cd "${{ github.event.inputs.package_path }}"
           PKG_NAME=$(jq -r .name package.json)
           PKG_VERSION=$(jq -r .version package.json)
           EXISTS=$(npm view $PKG_NAME@$PKG_VERSION --registry=https://npm.pkg.github.com/ 2>/dev/null || echo "notfound")
@@ -73,11 +80,11 @@ jobs:
           else
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
+        working-directory: ${{ github.event.inputs.package_path }}
 
       - name: Publish to GitHub Packages
         if: steps.version-check.outputs.exists == 'false'
-        run: |
-          cd "${{ github.event.inputs.package_path }}"
-          pnpm publish --registry=https://npm.pkg.github.com/
+        run: pnpm publish --registry=https://npm.pkg.github.com/
+        working-directory: ${{ github.event.inputs.package_path }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
