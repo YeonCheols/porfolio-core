@@ -1,7 +1,6 @@
 import { resolve } from "path";
 import { mergeConfig } from "vite";
 
-
 const UI_PATH = resolve("../../packages/ui/src");
 
 export default {
