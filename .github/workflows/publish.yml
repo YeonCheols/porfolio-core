@@ -4,6 +4,16 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "패키지 배포 여부"
+        required: true
+        default: "yes"
+        type: choice
+        options:
+          - "yes"
+          - "no"
 
 jobs:
   build:
@@ -16,8 +26,23 @@ jobs:
       - uses: pnpm/action-setup@v4
       - run: pnpm install
 
-  publish-gpr:
+  set-publish-flag:
     needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.set-flag.outputs.publish }}
+    steps:
+      - id: set-flag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "publish=${{ github.event.inputs.publish }}" >> $GITHUB_OUTPUT
+          else
+            echo "publish=yes" >> $GITHUB_OUTPUT
+          fi
+
+  publish-gpr:
+    needs: set-publish-flag
+    if: needs.set-publish-flag.outputs.publish == 'yes'
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -30,6 +55,22 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - uses: pnpm/action-setup@v4
       - run: pnpm install
-      - run: pnpm publish --registry=https://npm.pkg.github.com/
+
+      - name: Check if version already exists
+        id: version-check
+        run: |
+          PKG_NAME=$(jq -r .name package.json)
+          PKG_VERSION=$(jq -r .version package.json)
+          EXISTS=$(npm view $PKG_NAME@$PKG_VERSION --registry=https://npm.pkg.github.com/ 2>/dev/null || echo "notfound")
+          if [ "$EXISTS" != "notfound" ]; then
+            echo "Version $PKG_VERSION already exists. Skipping publish."
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to GitHub Packages
+        if: steps.version-check.outputs.exists == 'false'
+        run: pnpm publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

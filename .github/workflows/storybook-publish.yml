@@ -6,7 +6,6 @@ on:
     paths:
       - "**.stories.ts"
       - "**.stories.tsx"
-  workflow_dispatch:
 
 permissions:
   contents: read
