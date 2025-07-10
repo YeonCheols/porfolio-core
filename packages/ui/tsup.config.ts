@@ -1,19 +1,17 @@
-import { defineConfig } from "tsup";
-import pkg from "./package.json" with { type: "json" };
+import { defineConfig } from 'tsup';
+import pkg from './package.json' with { type: 'json' };
 
-const filePath = "./src";
+const filePath = './src';
 const dist = `./dist`;
 
-const external = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
-];
+const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})];
 
 export default defineConfig(() => ({
   entry: [filePath],
-  format: ["cjs", "esm"],
+  format: ['cjs', 'esm'],
   dts: true,
   outDir: dist,
+  clean: true,
   minify: true,
   external,
   treeshake: {
