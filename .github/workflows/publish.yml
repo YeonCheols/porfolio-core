@@ -20,7 +20,28 @@ on:
         default: "packages/ui"
 
 jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    outputs:
+      exists: ${{ steps.check.outputs.exists }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check if version already exists
+        id: check
+        run: |
+          PKG_NAME=$(jq -r .name ${{ github.event.inputs.package_path }}/package.json)
+          PKG_VERSION=$(jq -r .version ${{ github.event.inputs.package_path }}/package.json)
+          EXISTS=$(npm view $PKG_NAME@$PKG_VERSION --registry=https://npm.pkg.github.com/ 2>/dev/null || echo "notfound")
+          if [ "$EXISTS" != "notfound" ]; then
+            echo "Version $PKG_VERSION already exists. Skipping publish."
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
   build:
+    needs: version-check
+    if: needs.version-check.outputs.exists == 'false'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +53,7 @@ jobs:
 
   set-publish-flag:
     needs: build
+    if: needs.version-check.outputs.exists == 'false'
     runs-on: ubuntu-latest
     outputs:
       publish: ${{ steps.set-flag.outputs.publish }}
@@ -46,7 +68,7 @@ jobs:
 
   publish-gpr:
     needs: set-publish-flag
-    if: needs.set-publish-flag.outputs.publish == 'yes'
+    if: needs.version-check.outputs.exists == 'false' && needs.set-publish-flag.outputs.publish == 'yes'
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -68,22 +90,7 @@ jobs:
           pnpm build
         working-directory: ${{ github.event.inputs.package_path }}
 
-      - name: Check if version already exists
-        id: version-check
-        run: |
-          PKG_NAME=$(jq -r .name package.json)
-          PKG_VERSION=$(jq -r .version package.json)
-          EXISTS=$(npm view $PKG_NAME@$PKG_VERSION --registry=https://npm.pkg.github.com/ 2>/dev/null || echo "notfound")
-          if [ "$EXISTS" != "notfound" ]; then
-            echo "Version $PKG_VERSION already exists. Skipping publish."
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-        working-directory: ${{ github.event.inputs.package_path }}
-
       - name: Publish to GitHub Packages
-        if: steps.version-check.outputs.exists == 'false'
         run: pnpm publish --registry=https://npm.pkg.github.com/
         working-directory: ${{ github.event.inputs.package_path }}
         env:
