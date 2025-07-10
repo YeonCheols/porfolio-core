@@ -1,4 +1,2 @@
-export * from './Icon';
-export { StackIcon } from './Icon';
-export * from './tag';
-export { StackTag } from './tag';
+export { default as StackIcon } from './Icon';
+export { default as StackTag } from './tag';
