@@ -1,5 +1,5 @@
 {
-  "extends": "@YeonCheols/portfolio-core/tsconfig/react-library.json",
+  "extends": "@yeoncheols/portfolio-core-tsconfig/react-library.json",
   "include": [".", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {

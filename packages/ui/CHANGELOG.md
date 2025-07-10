@@ -1,4 +1,4 @@
-# @YeonCheols/portfolio-core/ui
+# @yeoncheols/portfolio-core-ui
 
 ## 0.1.0
 
