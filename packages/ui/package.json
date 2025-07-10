@@ -1,5 +1,5 @@
 {
-  "name": "@YeonCheols/portfolio-core/ui",
+  "name": "@yeoncheols/portfolio-core-ui",
   "version": "0.1.0",
   "sideEffects": false,
   "license": "MIT",
@@ -35,8 +35,8 @@
     "zustand": "4.3.3"
   },
   "devDependencies": {
-    "@YeonCheols/portfolio-core/esconfig": "workspace:*",
-    "@YeonCheols/portfolio-core/tsconfig": "workspace:*",
+    "@yeoncheols/portfolio-core-esconfig": "workspace:*",
+    "@yeoncheols/portfolio-core-tsconfig": "workspace:*",
     "@types/lodash-es": "4.17.6",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
