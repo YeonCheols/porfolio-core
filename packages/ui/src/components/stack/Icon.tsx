@@ -26,3 +26,5 @@ export function StackIcon({ name, icon, color = '', size = 20, className = '' }:
 
   return <IconComponent size={size} className={`${color} ${className}`} title={name} />;
 }
+
+export default StackIcon;

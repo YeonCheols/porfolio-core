@@ -16,3 +16,5 @@ export function StackTag({
     </div>
   );
 }
+
+export default StackTag;

@@ -4,13 +4,20 @@
   "sideEffects": false,
   "license": "MIT",
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "module": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "type": "module",
   "files": [
     "dist",
     "README.md"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style/global.css": "./dist/style/global.css"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
