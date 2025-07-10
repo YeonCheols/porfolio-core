@@ -13,6 +13,7 @@ export default defineConfig(() => ({
   outDir: dist,
   clean: true,
   minify: true,
+  sourcemap: false,
   external,
   treeshake: {
     moduleSideEffects: false,
