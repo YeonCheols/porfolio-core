@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.1.2
+
+### Patch Changes
+
+- tsup config 변경
+
 ## 0.1.1
 
 ### Patch Changes
