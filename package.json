@@ -10,8 +10,7 @@
     "dev:storybook": "turbo run dev --concurrency 11 --no-cache --continue",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
+    "changeset": "changeset && changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
     "publish-package": "bash scripts/publish.sh",
     "create-component": "bash scripts/create-component.sh"

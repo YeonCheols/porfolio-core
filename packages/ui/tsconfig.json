@@ -3,7 +3,7 @@
   "include": [".", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
-    "types": ["react", "react-dom", "lodash-es"],
+    "types": ["react", "react-dom", "node"],
     "target": "ES6",
     "module": "ESNext"
   }

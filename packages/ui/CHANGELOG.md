@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.1.3
+
+### Patch Changes
+
+- 빌드 파일 용량 최적화
+
 ## 0.1.2
 
 ### Patch Changes

@@ -32,7 +32,7 @@ porfolio-core/
 - **packages/ui**  
   실제로 사용할 React 기반 UI 컴포넌트(디자인 시스템) 라이브러리입니다.
   - 패키지명: @yeoncheols/portfolio-core-ui
-  - MUI, TailwindCSS, Zustand 등 활용
+  - TailwindCSS 활용
 
 - **packages/esconfig**  
   프로젝트 전반에 적용되는 ESLint 등 코드 품질/스타일 설정을 제공합니다.

@@ -1,6 +1,6 @@
 {
   "name": "@yeoncheols/portfolio-core-ui",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "sideEffects": false,
   "license": "MIT",
   "main": "./dist/index.js",
@@ -16,7 +16,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./style/global.css": "./dist/style/global.css"
+    "./ui-tailwind.min.css": "./dist/ui-tailwind.min.css"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -35,26 +35,22 @@
     "@mui/x-date-pickers": "5.0.0-alpha.7",
     "@mui/x-tree-view": "7.0.0",
     "clsx": "^2.1.1",
-    "lodash-es": "4.17.21",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "uuid": "8.3.2",
-    "zustand": "4.3.3"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@yeoncheols/portfolio-core-esconfig": "workspace:*",
-    "@yeoncheols/portfolio-core-tsconfig": "workspace:*",
-    "@types/lodash-es": "4.17.6",
+    "@types/node": "^24.0.13",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
-    "@types/uuid": "8.3.4",
+    "@yeoncheols/portfolio-core-esconfig": "workspace:*",
+    "@yeoncheols/portfolio-core-tsconfig": "workspace:*",
     "eslint": "^8.57.0",
-    "tsup": "^8.0.2",
-    "typescript": "5.5.4",
     "react-icons": "^4.12.0",
-    "tailwindcss": "^3.4.1",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "tsup": "^8.0.2",
+    "typescript": "5.5.4"
   },
   "peerDependencies": {
     "@mui/material": "^5.10.2",
