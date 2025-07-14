@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.2.0
+
+### Minor Changes
+
+- stackSelector 컴포넌트 추가
+
 ## 0.1.3
 
 ### Patch Changes
