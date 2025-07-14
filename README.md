@@ -62,6 +62,20 @@ porfolio-core/
 
 ---
 
+## TailwindCSS 사용 안내
+
+이 프로젝트의 스타일은 TailwindCSS 기반으로 제공됩니다.
+
+- **정적 Tailwind 클래스**는 `@yeoncheols/portfolio-core-ui/ui-tailwind.min.css` 파일로 제공됩니다.
+- **동적 Tailwind 클래스**(예: 조건부 className)는 CSS가 포함되어 있지 않으므로, 직접 CSS를 생성해 사용해야 합니다.
+- **권장사항**: 메인 페이지에 아래와 같이 CSS를 import 해주세요.
+  ```js
+  import "@yeoncheols/portfolio-core-ui/ui-tailwind.min.css";
+  ```
+- 외부 프로젝트에서 이미 TailwindCSS를 사용 중이라면 별도 import가 필요 없습니다.
+
+---
+
 ## 배포 및 버전 관리
 
 - Changesets를 통한 버전 관리 및 changelog 자동화
@@ -87,10 +101,42 @@ porfolio-core/
 
 ---
 
-## 라이선스
+## 주요 기능
 
-MIT
+- **UI 컴포넌트**
+  - `StackIcon`: 다양한 기술 스택(React 등)의 아이콘을 표시하는 컴포넌트. 색상, 크기, 이름 등 props로 제어 가능.
+  - `StackTag`: 아이콘과 함께 기술 스택 이름을 태그 형태로 보여주는 컴포넌트. showName, color, size 등 props 지원.
+- **Hooks/유틸리티**
+  - hooks/lib/common.ts: 공통적으로 사용할 수 있는 커스텀 훅 제공(상세 내용은 추후 확장 가능).
+  - utils: 아이콘 관련 유틸리티, 객체 병합(merge) 등 다양한 함수 제공.
+- **상수/타입**
+  - icon, loading 등 다양한 타입과 상수 제공.
 
 ---
 
-> 자세한 사용법 및 기여 방법은 각 패키지의 README.md를 참고하세요.
+## 사용 예시
+
+```tsx
+// StackIcon 사용 예시
+import { StackIcon } from "@yeoncheols/portfolio-core-ui";
+
+<StackIcon icon="SiReact" name="React" color="text-sky-500" size={24} />;
+
+// StackTag 사용 예시
+import { StackTag } from "@yeoncheols/portfolio-core-ui";
+
+<StackTag
+  icon="SiReact"
+  name="React"
+  color="text-sky-500"
+  size={20}
+  showName
+/>;
+```
+
+---
+
+## Storybook 문서화 안내
+
+- 모든 컴포넌트는 `apps/docs/stories`에 Storybook 스토리로 문서화되어 있습니다.
+- Storybook에서 실제 동작 및 props 조작 예시를 확인할 수 있습니다.
