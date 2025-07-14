@@ -44,10 +44,10 @@ importers:
         version: 8.6.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.6.14(prettier@3.6.2))(typescript@5.5.4)
       '@storybook/react-vite':
         specifier: ^8.2.6
-        version: 8.6.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.44.2)(storybook@8.6.14(prettier@3.6.2))(typescript@5.5.4)(vite@5.4.19(@types/node@22.16.1))
+        version: 8.6.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.44.2)(storybook@8.6.14(prettier@3.6.2))(typescript@5.5.4)(vite@5.4.19(@types/node@24.0.13))
       '@vitejs/plugin-react':
         specifier: ^4.2.1
-        version: 4.6.0(vite@5.4.19(@types/node@22.16.1))
+        version: 4.6.0(vite@5.4.19(@types/node@24.0.13))
       '@yeoncheols/portfolio-core-esconfig':
         specifier: workspace:*
         version: link:../../packages/esconfig
@@ -77,7 +77,7 @@ importers:
         version: 5.5.4
       vite:
         specifier: ^5.1.4
-        version: 5.4.19(@types/node@22.16.1)
+        version: 5.4.19(@types/node@24.0.13)
 
   packages/esconfig:
     devDependencies:
@@ -123,7 +123,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       lodash-es:
-        specifier: 4.17.21
+        specifier: ^4.17.21
         version: 4.17.21
       react:
         specifier: 18.2.0
@@ -131,25 +131,16 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
-      uuid:
-        specifier: 8.3.2
-        version: 8.3.2
-      zustand:
-        specifier: 4.3.3
-        version: 4.3.3(react@18.2.0)
     devDependencies:
-      '@types/lodash-es':
-        specifier: 4.17.6
-        version: 4.17.6
+      '@types/node':
+        specifier: ^24.0.13
+        version: 24.0.13
       '@types/react':
         specifier: ^18.2.61
         version: 18.3.23
       '@types/react-dom':
         specifier: ^18.2.19
         version: 18.3.7(@types/react@18.3.23)
-      '@types/uuid':
-        specifier: 8.3.4
-        version: 8.3.4
       '@yeoncheols/portfolio-core-esconfig':
         specifier: workspace:*
         version: link:../esconfig
@@ -1377,12 +1368,6 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/lodash-es@4.17.6':
-    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
-
-  '@types/lodash@4.17.20':
-    resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
-
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
 
@@ -1397,6 +1382,9 @@ packages:
 
   '@types/node@22.16.1':
     resolution: {integrity: sha512-oaNE4MzsA6uO7HcsjUvqzz19lYIRsV6I1Dc6iOvgwYYDiOeF7/9b2E/PE0UW2ccwpgWPVUedjltYXQXVKFd4EA==}
+
+  '@types/node@24.0.13':
+    resolution: {integrity: sha512-Qm9OYVOFHFYg3wJoTSrz80hoec5Lia/dPp84do3X7dZvLikQvM1YpmvTBEdIr/e+U8HTkFjLHLnl78K/qjf+jQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1434,9 +1422,6 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
-
-  '@types/uuid@8.3.4':
-    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
 
   '@types/uuid@9.0.8':
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
@@ -4181,6 +4166,9 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
+  undici-types@7.8.0:
+    resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
+
   unified-engine@11.2.2:
     resolution: {integrity: sha512-15g/gWE7qQl9tQ3nAEbMd5h9HV1EACtFs6N9xaRBZICoCwnNGbal1kOs++ICf4aiTdItZxU2s/kYWhW7htlqJg==}
 
@@ -4228,20 +4216,11 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  use-sync-external-store@1.2.0:
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
   util@0.12.5:
     resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==}
-
-  uuid@8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
 
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
@@ -4393,18 +4372,6 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-
-  zustand@4.3.3:
-    resolution: {integrity: sha512-x2jXq8S0kfLGNwGh87nhRfEc2eZy37tSatpSoSIN+O6HIaBhgQHSONV/F9VNrNcBcKQu/E80K1DeHDYQC/zCrQ==}
-    engines: {node: '>=12.7.0'}
-    peerDependencies:
-      immer: '>=9.0'
-      react: '>=16.8'
-    peerDependenciesMeta:
-      immer:
-        optional: true
-      react:
-        optional: true
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -5007,12 +4974,12 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.5.4)(vite@5.4.19(@types/node@22.16.1))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.5.4)(vite@5.4.19(@types/node@24.0.13))':
     dependencies:
       glob: 10.4.5
       magic-string: 0.27.0
       react-docgen-typescript: 2.4.0(typescript@5.5.4)
-      vite: 5.4.19(@types/node@22.16.1)
+      vite: 5.4.19(@types/node@24.0.13)
     optionalDependencies:
       typescript: 5.5.4
 
@@ -5501,13 +5468,13 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@storybook/builder-vite@8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@5.4.19(@types/node@22.16.1))':
+  '@storybook/builder-vite@8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@5.4.19(@types/node@24.0.13))':
     dependencies:
       '@storybook/csf-plugin': 8.6.14(storybook@8.6.14(prettier@3.6.2))
       browser-assert: 1.2.1
       storybook: 8.6.14(prettier@3.6.2)
       ts-dedent: 2.2.0
-      vite: 5.4.19(@types/node@22.16.1)
+      vite: 5.4.19(@types/node@24.0.13)
 
   '@storybook/components@8.6.14(storybook@8.6.14(prettier@3.6.2))':
     dependencies:
@@ -5564,11 +5531,11 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       storybook: 8.6.14(prettier@3.6.2)
 
-  '@storybook/react-vite@8.6.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.44.2)(storybook@8.6.14(prettier@3.6.2))(typescript@5.5.4)(vite@5.4.19(@types/node@22.16.1))':
+  '@storybook/react-vite@8.6.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.44.2)(storybook@8.6.14(prettier@3.6.2))(typescript@5.5.4)(vite@5.4.19(@types/node@24.0.13))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.5.4)(vite@5.4.19(@types/node@22.16.1))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.5.4)(vite@5.4.19(@types/node@24.0.13))
       '@rollup/pluginutils': 5.2.0(rollup@4.44.2)
-      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@5.4.19(@types/node@22.16.1))
+      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@5.4.19(@types/node@24.0.13))
       '@storybook/react': 8.6.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.6.14(prettier@3.6.2))(typescript@5.5.4)
       find-up: 5.0.0
       magic-string: 0.30.17
@@ -5578,7 +5545,7 @@ snapshots:
       resolve: 1.22.10
       storybook: 8.6.14(prettier@3.6.2)
       tsconfig-paths: 4.2.0
-      vite: 5.4.19(@types/node@22.16.1)
+      vite: 5.4.19(@types/node@24.0.13)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -5654,12 +5621,6 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/lodash-es@4.17.6':
-    dependencies:
-      '@types/lodash': 4.17.20
-
-  '@types/lodash@4.17.20': {}
-
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -5673,6 +5634,10 @@ snapshots:
   '@types/node@22.16.1':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/node@24.0.13':
+    dependencies:
+      undici-types: 7.8.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -5702,8 +5667,6 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
-
-  '@types/uuid@8.3.4': {}
 
   '@types/uuid@9.0.8': {}
 
@@ -5926,7 +5889,7 @@ snapshots:
       - jest
       - supports-color
 
-  '@vitejs/plugin-react@4.6.0(vite@5.4.19(@types/node@22.16.1))':
+  '@vitejs/plugin-react@4.6.0(vite@5.4.19(@types/node@24.0.13))':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.0)
@@ -5934,7 +5897,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.19
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 5.4.19(@types/node@22.16.1)
+      vite: 5.4.19(@types/node@24.0.13)
     transitivePeerDependencies:
       - supports-color
 
@@ -8936,6 +8899,8 @@ snapshots:
 
   undici-types@6.21.0: {}
 
+  undici-types@7.8.0: {}
+
   unified-engine@11.2.2:
     dependencies:
       '@types/concat-stream': 2.0.3
@@ -9046,10 +9011,6 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  use-sync-external-store@1.2.0(react@18.2.0):
-    dependencies:
-      react: 18.2.0
-
   util-deprecate@1.0.2: {}
 
   util@0.12.5:
@@ -9059,8 +9020,6 @@ snapshots:
       is-generator-function: 1.1.0
       is-typed-array: 1.1.15
       which-typed-array: 1.1.19
-
-  uuid@8.3.2: {}
 
   uuid@9.0.1: {}
 
@@ -9111,13 +9070,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@5.4.19(@types/node@22.16.1):
+  vite@5.4.19(@types/node@24.0.13):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.6
       rollup: 4.44.2
     optionalDependencies:
-      '@types/node': 22.16.1
+      '@types/node': 24.0.13
       fsevents: 2.3.3
 
   walk-up-path@3.0.1: {}
@@ -9210,11 +9169,5 @@ snapshots:
   yaml@2.8.0: {}
 
   yocto-queue@0.1.0: {}
-
-  zustand@4.3.3(react@18.2.0):
-    dependencies:
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    optionalDependencies:
-      react: 18.2.0
 
   zwitch@2.0.4: {}

@@ -7,7 +7,7 @@ export function StackTag({
   color = '',
   size = 16,
   className = '',
-  showName = false,
+  showName = true,
 }: StackTagProps): JSX.Element {
   return (
     <div className={`flex items-center gap-2 ${className}`}>

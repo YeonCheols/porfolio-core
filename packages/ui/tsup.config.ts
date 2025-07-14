@@ -1,13 +1,13 @@
 import { defineConfig } from 'tsup';
 import pkg from './package.json' with { type: 'json' };
 
-const filePath = './src';
+const entryPath = './src/index.ts';
 const dist = `./dist`;
 
 const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})];
 
-export default defineConfig(() => ({
-  entry: [filePath],
+export default defineConfig({
+  entry: [entryPath],
   format: ['cjs', 'esm'],
   dts: true,
   outDir: dist,
@@ -15,7 +15,5 @@ export default defineConfig(() => ({
   minify: true,
   sourcemap: false,
   external,
-  treeshake: {
-    moduleSideEffects: false,
-  },
-}));
+  onSuccess: 'tailwindcss -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
+});
