@@ -23,7 +23,6 @@ function StackSelector<T extends StackType>({
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStacks, setSelectedStacks] = useState<Array<StackType>>([]);
-  const [availableStacks, setAvailableStacks] = useState<Array<StackType>>(stacks);
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -35,7 +34,7 @@ function StackSelector<T extends StackType>({
       try {
         const stacksArray = JSON.parse(currentValue);
         const stackObjects = stacksArray.map((stackName: string) => {
-          const stack = availableStacks.find(s => s.name === stackName);
+          const stack = stacks.find(s => s.name === stackName);
           return stack || { name: stackName, icon: '', color: '' };
         });
         setSelectedStacks(stackObjects);
@@ -43,7 +42,7 @@ function StackSelector<T extends StackType>({
         console.info('Failed to parse stacks');
       }
     }
-  }, [currentValue, availableStacks]);
+  }, [currentValue, stacks]);
 
   // 스택 추가
   const addStack = (stack: { name: string; icon: string; color: string }) => {
@@ -69,7 +68,7 @@ function StackSelector<T extends StackType>({
   };
 
   // 필터링된 스택 목록
-  const filteredStacks = availableStacks.filter(
+  const filteredStacks = stacks.filter(
     stack =>
       stack.name.toLowerCase().includes(searchTerm.toLowerCase()) && !selectedStacks.find(s => s.name === stack.name),
   );
@@ -83,9 +82,9 @@ function StackSelector<T extends StackType>({
 
       {/* 선택된 스택 태그들 */}
       <div className="flex flex-wrap gap-2 min-h-[40px] p-2 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-600">
-        {selectedStacks.map((stack, index) => (
+        {selectedStacks.map(stack => (
           <div
-            key={index}
+            key={stack.name}
             className="flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md text-sm"
           >
             <StackTag name={stack.name} icon={stack.icon} color={stack.color} size={14} />
@@ -126,9 +125,9 @@ function StackSelector<T extends StackType>({
                   </div>
                 ) : (
                   <div className="p-2">
-                    {filteredStacks.map((stack, index) => (
+                    {filteredStacks.map(stack => (
                       <button
-                        key={index}
+                        key={stack.name}
                         type="button"
                         onClick={() => addStack(stack)}
                         className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"

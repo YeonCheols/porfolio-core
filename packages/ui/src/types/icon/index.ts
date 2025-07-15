@@ -24,10 +24,6 @@ export interface StackTagProps {
 
 export interface StackSelectorProps<T> {
   stacks: Array<T>;
-  register: UseFormRegister<any>;
-  watch: UseFormWatch<any>;
-  setValue: UseFormSetValue<any>;
-  errors: FieldErrors<any>;
   name: string;
   label?: string;
   placeholder?: string;
