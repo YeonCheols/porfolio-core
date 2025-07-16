@@ -23,7 +23,6 @@ function StackSelector<T extends StackType>({
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStacks, setSelectedStacks] = useState<Array<StackType>>([]);
-  const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const currentValue = watch(name);
@@ -73,6 +72,8 @@ function StackSelector<T extends StackType>({
       stack.name.toLowerCase().includes(searchTerm.toLowerCase()) && !selectedStacks.find(s => s.name === stack.name),
   );
 
+  console.log('selectedStacks', selectedStacks);
+
   return (
     <div className={cn('space-y-2', className)}>
       {label && <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>}
@@ -117,9 +118,7 @@ function StackSelector<T extends StackType>({
                 />
               </div>
               <div className="max-h-60 overflow-y-auto">
-                {loading ? (
-                  <div className="p-4 text-center text-gray-500">로딩 중...</div>
-                ) : filteredStacks.length === 0 ? (
+                {filteredStacks.length === 0 ? (
                   <div className="p-4 text-center text-gray-500">
                     {searchTerm ? '검색 결과가 없습니다.' : '사용 가능한 스택이 없습니다.'}
                   </div>
