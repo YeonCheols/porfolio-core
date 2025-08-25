@@ -1,4 +1,4 @@
-# Portfolio Core Monorepo
+# Portfolio Core library
 
 이 프로젝트는 Turborepo와 pnpm workspace를 기반으로 한 디자인 시스템/컴포넌트 라이브러리 모노레포입니다.
 
