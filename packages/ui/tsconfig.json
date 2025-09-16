@@ -4,7 +4,7 @@
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "types": ["react", "react-dom", "node"],
-    "target": "ES6",
+    "target": "ESNext",
     "module": "ESNext"
   }
 }

@@ -4,4 +4,7 @@ import tailwindcss from "tailwindcss";
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    target: "esnext",
+  },
 });

@@ -72,8 +72,6 @@ function StackSelector<T extends StackType>({
       stack.name.toLowerCase().includes(searchTerm.toLowerCase()) && !selectedStacks.find(s => s.name === stack.name),
   );
 
-  console.log('selectedStacks', selectedStacks);
-
   return (
     <div className={cn('space-y-2', className)}>
       {label && <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>}

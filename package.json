@@ -19,5 +19,13 @@
     "@changesets/cli": "^2.27.1",
     "prettier": "^3.2.5",
     "turbo": "^2.4.4"
-  }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "browserslist": [
+    "Chrome >= 127",
+    "Firefox >= 127",
+    "Safari >= 18"
+  ]
 }
