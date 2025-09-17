@@ -4,7 +4,18 @@
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "types": ["react", "react-dom", "node"],
-    "target": "ES6",
-    "module": "ESNext"
+    "target": "ESNext",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/primitives": ["src/ui-primitives"],
+      "@/components": ["src/ui-components"],
+      "@/types": ["src/types"],
+      "@/utils": ["src/utils"],
+      "@/hooks": ["src/hooks"],
+      "@/constant": ["src/constant"],
+      "@/store": ["src/store"]
+    }
   }
 }

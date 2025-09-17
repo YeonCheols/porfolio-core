@@ -9,6 +9,7 @@ const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.pee
 export default defineConfig({
   entry: [entryPath],
   format: ['cjs', 'esm'],
+  target: 'esnext',
   dts: true,
   outDir: dist,
   clean: true,
