@@ -1,5 +1,5 @@
-import { StackTagProps } from '../../types/icon';
-import { StackIcon } from './Icon';
+import { StackTagProps } from '../../../types/icon';
+import { StackIcon } from '../icon';
 
 export function StackTag({
   name,

@@ -1,5 +1,5 @@
-import { StackIconProps } from '../../types/icon';
-import { cn, getIconComponent } from '../../utils';
+import { StackIconProps } from '../../../types/icon';
+import { cn, getIconComponent } from '../../../utils';
 
 export function StackIcon({ name, icon, color = '', size = 20, className = '' }: StackIconProps): JSX.Element {
   if (!icon) {

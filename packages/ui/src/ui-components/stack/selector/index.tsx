@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Popover, PopoverContent, PopoverTrigger } from '../popover';
-import { cn, StackSelectorProps, StackTag, StackType } from '../..';
+import { Popover, PopoverContent, PopoverTrigger } from '@/ui-primitives';
 import { useFormContext } from 'react-hook-form';
+import { StackSelectorProps, StackType } from '@/types/icon';
+import { cn } from '@/utils';
+import { StackTag } from '@/ui-components';
 
 function StackSelector<T extends StackType>({
   stacks,
@@ -101,7 +103,7 @@ function StackSelector<T extends StackType>({
           <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
               <button type="button" className="h-8 px-3 text-sm" onClick={() => setIsOpen(true)}>
-                + 스택 추가
+                + 스택 추가d
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-80 p-0" align="start">
