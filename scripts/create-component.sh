@@ -1,7 +1,7 @@
 #!/bin/bash
 read -rp 'Name of component: ' name
-# Capitalize first letter
-component_name="$(tr '[:lower:]' '[:upper:]' <<<"${name:0:1}")${name:1}"
+# Use the component name as entered (no capitalization)
+component_name="$name"
 styled_name=$(echo "$component_name" | perl -pe 's/([a-z0-9])([A-Z])/$1-\L$2/g' | perl -ne 'print lc')
 
 story_dir='apps/docs/stories'
