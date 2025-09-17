@@ -1,24 +1,13 @@
-import { ReactNode } from 'react';
+'use client';
+
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import { CodeBlock } from '@/index';
+import { CodeBlock, Table } from '@/index';
 
 interface MarkdownRendererProps {
   children: string;
 }
-
-interface TableProps {
-  children: ReactNode;
-}
-
-const Table = ({ children }: TableProps) => {
-  return (
-    <div className="table-container">
-      <table className="table w-full">{children}</table>
-    </div>
-  );
-};
 
 const Markdown = ({ children }: MarkdownRendererProps) => {
   return (

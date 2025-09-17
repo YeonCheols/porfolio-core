@@ -1,10 +1,8 @@
-import { motion } from 'framer-motion';
-import { ReactNode, useState } from 'react';
+'use client';
 
-interface TooltipProps {
-  title: string;
-  children: ReactNode;
-}
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { TooltipProps } from '@/types/tooltip';
 
 const Tooltip = ({ title, children }: TooltipProps) => {
   const [isTooltipVisible, setTooltipVisible] = useState(false);

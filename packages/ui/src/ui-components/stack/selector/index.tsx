@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Popover, PopoverContent, PopoverTrigger } from '@/ui-primitives';
 import { useFormContext } from 'react-hook-form';
+import { Popover, PopoverContent, PopoverTrigger } from '@/ui-primitives';
 import { StackSelectorProps, StackType } from '@/types/icon';
 import { cn } from '@/utils';
 import { StackTag } from '@/ui-components';
