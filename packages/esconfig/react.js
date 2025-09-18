@@ -57,16 +57,6 @@ module.exports = {
     "react-hooks/exhaustive-deps": "off",
     "react/self-closing-comp": "off",
     indent: "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
     "import/no-anonymous-default-export": "off",
     "object-curly-newline": "off",
     "jsx-a11y/role-supports-aria-props": "off",
