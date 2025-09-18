@@ -3,7 +3,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import { CodeBlock, Table } from '@/index';
+import { CodeBlock, Table } from '../index';
 
 interface MarkdownRendererProps {
   children: string;

@@ -75,22 +75,30 @@ for i in "${!menu_labels[@]}"; do
     printf "%2d) %s\n" $((i + 1)) "${menu_labels[$i]}"
 done
 echo " q) 종료"
+echo ""
 
-read -rp "번호를 입력하세요: " choice
-if [[ "$choice" == "q" || "$choice" == "Q" ]]; then
-    exit 0
-fi
-
-if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
-    echo "잘못된 입력입니다"
-    exit 1
-fi
-
-idx=$((choice - 1))
-if [ "$idx" -lt 0 ] || [ "$idx" -ge "${#menu_files[@]}" ]; then
-    echo "범위를 벗어난 선택입니다"
-    exit 1
-fi
+# 숫자 입력 즉시 실행
+while true; do
+    read -n 1 -s choice
+    echo ""
+    
+    if [[ "$choice" == "q" || "$choice" == "Q" ]]; then
+        exit 0
+    fi
+    
+    if [[ "$choice" =~ ^[0-9]+$ ]]; then
+        idx=$((choice - 1))
+        if [ "$idx" -ge 0 ] && [ "$idx" -lt "${#menu_files[@]}" ]; then
+            break
+        else
+            echo "범위를 벗어난 선택입니다. 다시 입력하세요."
+            continue
+        fi
+    else
+        echo "잘못된 입력입니다. 숫자나 'q'를 입력하세요."
+        continue
+    fi
+done
 
 target="${menu_files[$idx]}"
 label="${menu_labels[$idx]}"

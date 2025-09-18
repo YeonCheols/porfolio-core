@@ -12,8 +12,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset && changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "publish-package": "bash scripts/publish.sh",
-    "create-component": "bash scripts/create-component.sh"
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "helper-scripts": "bash quick-menu.sh"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
