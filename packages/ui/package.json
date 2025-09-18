@@ -25,6 +25,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 50",
+    "lint:fix": "eslint . --max-warnings 50 --fix",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf .turbo node_modules dist"
   },

@@ -13,6 +13,7 @@
     "changeset": "changeset && changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "typecheck": "turbo run typecheck",
     "helper-scripts": "bash quick-menu.sh"
   },
