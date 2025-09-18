@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/ui-primitives';
-import { StackSelectorProps, StackType } from '@/types/icon';
+import { type StackSelectorProps, type StackType } from '@/types/icon';
 import { cn } from '@/utils';
 import { StackTag } from '@/ui-components';
 
@@ -24,7 +24,7 @@ function StackSelector<T extends StackType>({
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedStacks, setSelectedStacks] = useState<Array<StackType>>([]);
+  const [selectedStacks, setSelectedStacks] = useState<StackType[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const currentValue = watch(name);
@@ -76,17 +76,17 @@ function StackSelector<T extends StackType>({
 
   return (
     <div className={cn('space-y-2', className)}>
-      {label && <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>}
+      {label ? <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label> : null}
 
       {/* 숨겨진 입력 필드 */}
       <input {...register(name)} type="hidden" />
 
       {/* 선택된 스택 태그들 */}
-      <div className="flex flex-wrap gap-2 min-h-[40px] p-2 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-600">
+      <div className="flex min-h-[40px] flex-wrap gap-2 rounded-lg border border-gray-300 bg-white p-2 dark:border-gray-600 dark:bg-gray-800">
         {selectedStacks.map(stack => (
           <div
             key={stack.name}
-            className="flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md text-sm"
+            className="flex items-center gap-1 rounded-md bg-blue-100 px-2 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200"
           >
             <StackTag name={stack.name} icon={stack.icon} color={stack.color} size={14} />
             <button
@@ -107,14 +107,14 @@ function StackSelector<T extends StackType>({
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-80 p-0" align="start">
-              <div className="p-3 border-b">
+              <div className="border-b p-3">
                 <input
                   ref={inputRef}
                   type="text"
                   placeholder={placeholder}
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 />
               </div>
               <div className="max-h-60 overflow-y-auto">
@@ -129,7 +129,7 @@ function StackSelector<T extends StackType>({
                         key={stack.name}
                         type="button"
                         onClick={() => addStack(stack)}
-                        className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"
+                        className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
                       >
                         <StackTag name={stack.name} icon={stack.icon} color={stack.color} size={16} showName />
                       </button>
@@ -143,7 +143,7 @@ function StackSelector<T extends StackType>({
       </div>
 
       {/* 에러 메시지 */}
-      {errors[name] && <p className="text-sm text-red-600 dark:text-red-400">{errors[name]?.message as string}</p>}
+      {errors[name] ? <p className="text-sm text-red-600 dark:text-red-400">{errors[name].message as string}</p> : null}
 
       {/* 선택된 스택 개수 표시 */}
       <p className="text-xs text-gray-500 dark:text-gray-400">
