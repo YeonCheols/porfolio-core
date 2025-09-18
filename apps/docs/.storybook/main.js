@@ -35,6 +35,38 @@ export default {
             find: "@ui",
             replacement: UI_PATH,
           },
+          {
+            find: "@",
+            replacement: UI_PATH,
+          },
+          {
+            find: "@/utils",
+            replacement: resolve(UI_PATH, "utils"),
+          },
+          {
+            find: "@/primitives",
+            replacement: resolve(UI_PATH, "ui-primitives"),
+          },
+          {
+            find: "@/components",
+            replacement: resolve(UI_PATH, "ui-components"),
+          },
+          {
+            find: "@/types",
+            replacement: resolve(UI_PATH, "types"),
+          },
+          {
+            find: "@/hooks",
+            replacement: resolve(UI_PATH, "hooks"),
+          },
+          {
+            find: "@/constant",
+            replacement: resolve(UI_PATH, "constant"),
+          },
+          {
+            find: "@/store",
+            replacement: resolve(UI_PATH, "store"),
+          },
         ],
       },
     });

@@ -1,9 +1,9 @@
-import { fontFamily } from 'tailwindcss/defaultTheme';
+import defaultTheme from 'tailwindcss/defaultTheme';
 import tailwindcssAnimate from 'tailwindcss-animate';
 import type { Config } from 'tailwindcss';
 
 const config = {
-  darkMode: ['class'],
+  darkMode: 'class',
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -23,7 +23,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-gabarito)', ...fontFamily.sans],
+        sans: ['var(--font-gabarito)', ...defaultTheme.fontFamily.sans],
       },
       screens: {
         phone: '370px',
@@ -90,4 +90,4 @@ const config = {
   plugins: [tailwindcssAnimate],
 } satisfies Config;
 
-export default config;
+export { config };

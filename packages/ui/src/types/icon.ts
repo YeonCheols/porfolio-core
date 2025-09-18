@@ -23,7 +23,7 @@ export interface StackTagProps {
 }
 
 export interface StackSelectorProps<T> {
-  stacks: Array<T>;
+  stacks: T[];
   name: string;
   label?: string;
   placeholder?: string;

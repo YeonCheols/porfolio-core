@@ -1,11 +1,11 @@
-import { StackIconProps } from '../../../types/icon';
-import { cn, getIconComponent } from '../../../utils';
+import { type StackIconProps } from '@/types/icon';
+import { cn, getIconComponent } from '@/utils';
 
-export function StackIcon({ name, icon, color = '', size = 20, className = '' }: StackIconProps): JSX.Element {
+function StackIcon({ name, icon, color = '', size = 20, className = '' }: StackIconProps): JSX.Element {
   if (!icon) {
     return (
       <div
-        className={cn(`bg-gray-200 dark:bg-gray-700 rounded`, className)}
+        className={cn(`rounded bg-gray-200 dark:bg-gray-700`, className)}
         style={{ width: size, height: size }}
         title={name}
       />
@@ -17,7 +17,7 @@ export function StackIcon({ name, icon, color = '', size = 20, className = '' }:
   if (!IconComponent) {
     return (
       <div
-        className={cn(`bg-gray-200 dark:bg-gray-700 rounded`, className)}
+        className={cn(`rounded bg-gray-200 dark:bg-gray-700`, className)}
         style={{ width: size, height: size }}
         title={name}
       />

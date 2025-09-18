@@ -2,7 +2,7 @@
 
 confirm() {
     while true; do
-        read -r -n 1 -p "${1:-Continue?} [y/n]: " REPLY
+        read -r -n 1 -p "${1:-Continue?} (y/n) :" REPLY
         case $REPLY in
         [yY])
             echo

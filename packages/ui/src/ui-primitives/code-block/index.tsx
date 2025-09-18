@@ -1,7 +1,9 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { HiCheckCircle as CheckIcon, HiOutlineClipboardCopy as CopyIcon } from 'react-icons/hi';
-import { CodeProps } from 'react-markdown/lib/ast-to-react';
+import { type CodeProps } from 'react-markdown/lib/ast-to-react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 import diff from 'react-syntax-highlighter/dist/cjs/languages/prism/diff';
@@ -25,7 +27,7 @@ SyntaxHighlighter.registerLanguage(languages.diff, diff);
 SyntaxHighlighter.registerLanguage(languages.tsx, tsx);
 SyntaxHighlighter.registerLanguage(languages.css, css);
 
-export const CodeBlock = ({ className = '', children, inline, ...props }: CodeProps) => {
+export function CodeBlock({ className = '', children, inline, ...props }: CodeProps) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [, copy] = useCopyToClipboard();
   const match = /language-(\w+)/.exec(className || '');
@@ -50,7 +52,7 @@ export const CodeBlock = ({ className = '', children, inline, ...props }: CodePr
       {!inline ? (
         <div className="relative">
           <button
-            className="absolute right-3 top-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
+            className="absolute top-3 right-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
             type="button"
             aria-label="Copy to Clipboard"
             onClick={() => handleCopy(children.toString())}
@@ -74,7 +76,7 @@ export const CodeBlock = ({ className = '', children, inline, ...props }: CodePr
             }}
             PreTag="div"
             language={match ? match[1] : 'javascript'}
-            wrapLongLines={true}
+            wrapLongLines
           >
             {String(children).replace(/\n$/, '')}
           </SyntaxHighlighter>
@@ -86,11 +88,11 @@ export const CodeBlock = ({ className = '', children, inline, ...props }: CodePr
       )}
     </>
   );
-};
+}
 
-const LoadingPlaceholder = () => {
-  return <div className="mb-12 mt-12 h-36 w-full" />;
-};
+function LoadingPlaceholder() {
+  return <div className="mt-12 mb-12 h-36 w-full" />;
+}
 
 export default dynamic(() => Promise.resolve(CodeBlock), {
   ssr: false,

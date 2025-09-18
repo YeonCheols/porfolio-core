@@ -1,5 +1,5 @@
-import { StackTagProps } from '../../../types/icon';
-import { StackIcon } from '../icon';
+import { StackIcon } from '@/ui-components';
+import { type StackTagProps } from '@/types/icon';
 
 export function StackTag({
   name,
@@ -12,7 +12,7 @@ export function StackTag({
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <StackIcon name={name} icon={icon} color={color} size={size} />
-      {showName && <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{name}</span>}
+      {showName ? <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{name}</span> : null}
     </div>
   );
 }

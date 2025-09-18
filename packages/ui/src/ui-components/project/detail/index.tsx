@@ -1,9 +1,7 @@
 import { ProjectLink } from '@/ui-components';
 import { Markdown, Tooltip } from '@/ui-primitives';
 
-type stackIconType = {
-  [key: string]: JSX.Element;
-};
+type stackIconType = Record<string, JSX.Element>;
 
 interface ProjectDetailData {
   title: string;
@@ -19,7 +17,7 @@ interface ProjectDetailProps {
   stackIcons: stackIconType;
 }
 
-export const ProjectDetail = ({ data, stackIcons }: ProjectDetailProps) => {
+export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
   const { title, image, stacks, linkDemo, linkGithub, content } = data;
   const stacksArray = JSON.parse(stacks);
 
@@ -41,13 +39,13 @@ export const ProjectDetail = ({ data, stackIcons }: ProjectDetailProps) => {
       {image.startsWith('https') && (
         <img src={image} width={800} height={400} alt={title} className="hover:scale-105" />
       )}
-      {content && (
+      {content ? (
         <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300">
           <Markdown>{content}</Markdown>
         </div>
-      )}
+      ) : null}
     </div>
   );
-};
+}
 
 export default ProjectDetail;
