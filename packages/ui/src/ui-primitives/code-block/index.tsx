@@ -27,13 +27,13 @@ SyntaxHighlighter.registerLanguage(languages.diff, diff);
 SyntaxHighlighter.registerLanguage(languages.tsx, tsx);
 SyntaxHighlighter.registerLanguage(languages.css, css);
 
-export function CodeBlock({ className = '', children, inline, ...props }: CodeProps) {
+function CodeBlock({ className = '', children, inline, ...props }: CodeProps) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [, copy] = useCopyToClipboard();
-  const match = /language-(\w+)/.exec(className || '');
+  const match = /language-(?<language>\w+)/.exec(className || '');
 
   const handleCopy = (code: string) => {
-    copy(code);
+    void copy(code);
     setIsCopied(true);
   };
 
@@ -75,7 +75,7 @@ export function CodeBlock({ className = '', children, inline, ...props }: CodePr
               paddingRight: '50px',
             }}
             PreTag="div"
-            language={match ? match[1] : 'javascript'}
+            language={match?.groups?.language ?? 'javascript'}
             wrapLongLines
           >
             {String(children).replace(/\n$/, '')}

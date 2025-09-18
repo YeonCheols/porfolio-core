@@ -6,16 +6,16 @@ import { Link } from '@/ui-primitives';
 
 interface ProjectLinkProps {
   title?: string;
-  link_github?: string;
-  link_demo?: string;
+  linkGithub?: string;
+  linkDemo?: string;
 }
 
-function ProjectLink({ link_github, link_demo }: ProjectLinkProps) {
+function ProjectLink({ linkGithub, linkDemo }: ProjectLinkProps) {
   return (
     <div className="flex gap-4">
-      {link_github ? <Link url={link_github} text="Source Code" icon={<GithubIcon size={22} />} /> : null}
-      {link_github && link_demo ? <span className="text-neutral-400 dark:text-neutral-600">|</span> : null}
-      {link_demo ? <Link url={link_demo} text="Live Demo" icon={<LinkIcon size={22} />} /> : null}
+      {linkGithub ? <Link url={linkGithub} text="Source Code" icon={<GithubIcon size={22} />} /> : null}
+      {linkGithub && linkDemo ? <span className="text-neutral-400 dark:text-neutral-600">|</span> : null}
+      {linkDemo ? <Link url={linkDemo} text="Live Demo" icon={<LinkIcon size={22} />} /> : null}
     </div>
   );
 }

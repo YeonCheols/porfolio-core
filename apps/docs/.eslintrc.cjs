@@ -3,4 +3,8 @@ module.exports = {
   extends: [
     require.resolve("@yeoncheols/portfolio-core-esconfig/storybook.js"),
   ],
+  parserOptions: {
+    project: "./tsconfig.json", // 또는 경로가 다르면 'relative/path/to/tsconfig.json'
+    tsconfigRootDir: __dirname,
+  },
 };

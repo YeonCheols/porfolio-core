@@ -1,5 +1,3 @@
-import { FieldErrors, UseFormRegister, UseFormSetValue, UseFormWatch } from 'react-hook-form';
-
 export interface StackType {
   id?: number;
   name: string;

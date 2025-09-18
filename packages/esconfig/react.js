@@ -82,5 +82,24 @@ module.exports = {
     "@typescript-eslint/no-unsafe-call": "off",
     "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/no-unsafe-return": "off",
+    "import/no-default-export": "off",
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "internal",
+          "index",
+        ],
+        "newlines-between": "never",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
   },
 };

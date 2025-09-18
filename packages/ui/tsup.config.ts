@@ -4,9 +4,9 @@ import pkg from './package.json' with { type: 'json' };
 const entryPath = './src/index.ts';
 const dist = `./dist`;
 
-const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})];
+const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
 
-export default defineConfig({
+export const config = defineConfig({
   entry: [entryPath],
   format: ['cjs', 'esm'],
   target: 'esnext',

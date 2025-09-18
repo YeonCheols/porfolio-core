@@ -1,4 +1,4 @@
-import { StackIcon } from '@/ui-components';
+import StackIcon from '../icon';
 import { type StackTagProps } from '@/types/icon';
 
 export function StackTag({

@@ -1,7 +1,7 @@
 import { ProjectLink } from '@/ui-components';
 import { Markdown, Tooltip } from '@/ui-primitives';
 
-type stackIconType = Record<string, JSX.Element>;
+type StackIconType = Record<string, JSX.Element>;
 
 interface ProjectDetailData {
   title: string;
@@ -14,12 +14,12 @@ interface ProjectDetailData {
 
 interface ProjectDetailProps {
   data: ProjectDetailData;
-  stackIcons: stackIconType;
+  stackIcons: StackIconType;
 }
 
 export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
   const { title, image, stacks, linkDemo, linkGithub, content } = data;
-  const stacksArray = JSON.parse(stacks);
+  const stacksArray = JSON.parse(stacks) as string[];
 
   return (
     <div className="space-y-8">
@@ -27,14 +27,14 @@ export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
         <div className="flex flex-wrap items-center gap-2">
           <span className="mb-1 text-[15px] text-neutral-700 dark:text-neutral-300">Tech Stack :</span>
           <div className="flex flex-wrap items-center gap-3">
-            {stacksArray?.map((stack: string, index: number) => (
-              <div key={index}>
+            {stacksArray.map((stack: string) => (
+              <div key={stack}>
                 <Tooltip title={stack}>{stackIcons[stack]}</Tooltip>
               </div>
             ))}
           </div>
         </div>
-        <ProjectLink title={title} link_demo={linkDemo} link_github={linkGithub} />
+        <ProjectLink title={title} linkDemo={linkDemo} linkGithub={linkGithub} />
       </div>
       {image.startsWith('https') && (
         <img src={image} width={800} height={400} alt={title} className="hover:scale-105" />
