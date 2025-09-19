@@ -13,9 +13,6 @@ export default {
   core: {
     builder: "@storybook/builder-vite",
   },
-  docs: {
-    autodocs: true,
-  },
   features: {
     buildStoriesJson: true,
   },

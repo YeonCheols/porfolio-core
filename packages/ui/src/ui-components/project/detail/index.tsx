@@ -42,7 +42,7 @@ export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
         <img src={image} width={800} height={400} alt={title} className="hover:scale-105" />
       )}
       {content ? (
-        <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300">
+        <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300 text-neutral-700">
           <Markdown>{content}</Markdown>
         </div>
       ) : null}
