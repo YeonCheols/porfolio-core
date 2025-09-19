@@ -4,7 +4,7 @@ import { BsGithub as GithubIcon } from 'react-icons/bs';
 import { FiExternalLink as LinkIcon } from 'react-icons/fi';
 import { Link } from '@/ui-primitives';
 
-interface ProjectLinkProps {
+export interface ProjectLinkProps {
   title?: string;
   linkGithub?: string;
   linkDemo?: string;

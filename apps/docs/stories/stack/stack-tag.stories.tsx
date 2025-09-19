@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StackTag, StackTagProps } from "@ui";
+import { StackTag, type StackTagProps } from "@ui";
 
 const meta = {
   component: StackTag,

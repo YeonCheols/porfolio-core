@@ -103,7 +103,7 @@ function StackSelector<T extends StackType>({
           <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
               <button type="button" className="h-8 px-3 text-sm" onClick={() => setIsOpen(true)}>
-                + 스택 추가d
+                + 스택 추가
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-80 p-0" align="start">

@@ -6,7 +6,7 @@ const dist = `./dist`;
 
 const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
 
-export const config = defineConfig({
+export default defineConfig({
   entry: [entryPath],
   format: ['cjs', 'esm'],
   target: 'esnext',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StackSelector, StackSelectorProps, StackType } from "@ui";
 import { FormProvider, useForm } from "react-hook-form";
+import { StackSelector, type StackSelectorProps, type StackType } from "@ui";
 
 const meta = {
   component: StackSelector,

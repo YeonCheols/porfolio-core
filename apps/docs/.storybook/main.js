@@ -5,11 +5,7 @@ const UI_PATH = resolve("../../packages/ui/src");
 
 export default {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx|mdx)"],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-themes",
-  ],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   framework: {
     name: "@storybook/react-vite",
     options: {},
@@ -38,34 +34,6 @@ export default {
           {
             find: "@",
             replacement: UI_PATH,
-          },
-          {
-            find: "@/utils",
-            replacement: resolve(UI_PATH, "utils"),
-          },
-          {
-            find: "@/primitives",
-            replacement: resolve(UI_PATH, "ui-primitives"),
-          },
-          {
-            find: "@/components",
-            replacement: resolve(UI_PATH, "ui-components"),
-          },
-          {
-            find: "@/types",
-            replacement: resolve(UI_PATH, "types"),
-          },
-          {
-            find: "@/hooks",
-            replacement: resolve(UI_PATH, "hooks"),
-          },
-          {
-            find: "@/constant",
-            replacement: resolve(UI_PATH, "constant"),
-          },
-          {
-            find: "@/store",
-            replacement: resolve(UI_PATH, "store"),
           },
         ],
       },

@@ -12,12 +12,14 @@ interface ProjectDetailData {
   content: string;
 }
 
-interface ProjectDetailProps {
+export interface ProjectDetailProps {
   data: ProjectDetailData;
   stackIcons: StackIconType;
 }
 
 export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
+  if (typeof data === 'undefined') return null;
+
   const { title, image, stacks, linkDemo, linkGithub, content } = data;
   const stacksArray = JSON.parse(stacks) as string[];
 

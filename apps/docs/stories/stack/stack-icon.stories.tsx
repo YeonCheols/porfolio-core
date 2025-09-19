@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StackIcon, StackIconProps } from "@ui";
+import { StackIcon, type StackIconProps } from "@ui";
 
 const meta = {
   component: StackIcon,
