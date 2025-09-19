@@ -1,2 +1,2 @@
-export { default as ProjectDetail } from './detail';
-export { default as ProjectLink } from './link';
+export { default as ProjectDetail, type ProjectDetailProps } from './detail';
+export { default as ProjectLink, type ProjectLinkProps } from './link';

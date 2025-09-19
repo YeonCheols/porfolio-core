@@ -1,8 +1,9 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 import tailwindcssAnimate from "tailwindcss-animate";
-import { Config } from "tailwindcss/types";
+import { type Config } from "tailwindcss/types";
 
 const config = {
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",

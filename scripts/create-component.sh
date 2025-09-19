@@ -1,62 +1,83 @@
 #!/bin/bash
-read -rp 'Name of component: ' name
-# Use the component name as entered (no capitalization)
-component_name="$name"
-styled_name=$(echo "$component_name" | perl -pe 's/([a-z0-9])([A-Z])/$1-\L$2/g' | perl -ne 'print lc')
 
-story_dir='apps/docs/stories'
-ui_dir="packages/ui/src/components/$component_name"
+# 컬러 정의
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
 
-mkdir "$ui_dir"
-# printf ".%s {\n}" "$styled_name" >>"$ui_dir/index.module.scss"
+# 폴더 타입 선택
+echo -e "${BLUE}컴포넌트 타입을 선택하세요:${NC}"
+echo -e "${GREEN}1)${NC} ${YELLOW}ui-components${NC}"
+echo -e "${GREEN}2)${NC} ${YELLOW}ui-primitives${NC}"
+read -n 1 -rp "" folder_choice
+echo ""
+
+case $folder_choice in
+    1)
+        folder_type="ui-components"
+        ;;
+    2)
+        folder_type="ui-primitives"
+        ;;
+    *)
+        echo "1 또는 2번을 입력하세요."
+        exit 1
+        ;;
+esac
+
+# 컴포넌트 이름 입력 (kebab-case 권장)
+read -rp '컴포넌트 이름 (kebab-case 권장, 예: my-component): ' name
+
+# kebab-case 검증 및 변환
+if [[ "$name" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+    component_name="$name"
+else
+    echo "경고: kebab-case 형식이 아닙니다. 자동으로 변환합니다."
+    # PascalCase나 camelCase를 kebab-case로 변환
+    component_name=$(echo "$name" | perl -pe 's/([a-z0-9])([A-Z])/$1-\L$2/g' | perl -ne 'print lc')
+    echo "변환된 이름: $component_name"
+fi
+
+# PascalCase 컴포넌트 이름 생성 (React 컴포넌트용)
+pascal_name=$(echo "$component_name" | perl -pe 's/(^|-)([a-z])/\U$2/g')
+
+ui_dir="packages/ui/src/$folder_type/$component_name"
+
+# 디렉토리 생성
+mkdir -p "$ui_dir"
+
+# 컴포넌트 파일 생성
 echo "import { cn } from '../../utils/merge';
 
-export interface ${component_name}Props {}
+export interface ${pascal_name}Props {}
 
-function $component_name({}: ${component_name}Props) {
+function ${pascal_name}({}: ${pascal_name}Props) {
     return <div className={cn()}></div>;
 }
 
-export default $component_name
-" >>"$ui_dir/index.tsx"
-echo "import type { Meta, StoryObj } from '@storybook/react';
-import { $component_name, ${component_name}Props } from '@ui';
+export default ${pascal_name}
+" > "$ui_dir/index.tsx"
 
-const meta = {
-  component: $component_name,
-  argTypes: {},
-} satisfies Meta<typeof $component_name>;
+# barrel 파일 업데이트
+barrel_file="packages/ui/src/$folder_type/index.ts"
 
-export default meta;
-
-type Story = StoryObj<${component_name}Props>;
-
-export const Primary: Story = {
-  render: (props: ${component_name}Props) => <$component_name {...props} />,
-  name: '$component_name',
-  args: {},
-};
-
-found=0
-next_component=''
-for file in packages/ui/src/components*; do
-    if [[ "$found" -eq 1 ]]; then
-        next_component=${file:11}
-        break
-    fi
-
-    if [ "$file" = "packages/ui/src/components/$component_name" ]; then
-        found=1
-    fi
-done
-
-regex="export \* from './$next_component';"
+# export 문 생성
 export_all="export * from './$component_name';"
-export_default="export { default as $component_name } from './$component_name';"
-barrel_file='packages/ui/src/components/index.ts'
+export_default="export { default as $pascal_name } from './$component_name';"
 
-if grep -q "$regex" "$barrel_file"; then
-    sed -i '' "s#$regex#$export_all\n$export_default\n$regex#g" "$barrel_file"
+# barrel 파일에 추가
+if [ -f "$barrel_file" ]; then
+    # 파일이 존재하는 경우, 마지막에 추가
+    echo "" >> "$barrel_file"
+    echo "$export_all" >> "$barrel_file"
+    echo "$export_default" >> "$barrel_file"
 else
-    printf "%s\n%s\n" "$export_all" "$export_default" >>"$barrel_file"
+    # 파일이 존재하지 않는 경우, 새로 생성
+    echo "$export_all" > "$barrel_file"
+    echo "$export_default" >> "$barrel_file"
 fi
+
+echo "✅ 컴포넌트가 성공적으로 생성되었습니다!"
+echo "📁 위치: $ui_dir"
+echo "📝 컴포넌트: $pascal_name"

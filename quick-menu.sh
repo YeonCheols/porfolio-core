@@ -32,6 +32,10 @@ derive_menu_name() {
         echo "UI 컴포넌트 생성"
         return
         ;;
+    create-storybook.sh)
+        echo "스토리북 컴포넌트 생성"
+        return
+        ;;
     update-package.sh)
         echo "패키지 의존성 업데이트"
         return
@@ -70,11 +74,18 @@ for f in "${files[@]}"; do
     menu_files+=("$f")
 done
 
-echo "실행할 스크립트를 선택하세요:"
+# 컬러 정의
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${BLUE}실행할 스크립트를 선택하세요:${NC}"
 for i in "${!menu_labels[@]}"; do
-    printf "%2d) %s\n" $((i + 1)) "${menu_labels[$i]}"
+    printf "${GREEN}%2d)${NC} ${YELLOW}%s${NC}\n" $((i + 1)) "${menu_labels[$i]}"
 done
-echo " q) 종료"
+echo -e " ${RED}q)${NC} 종료"
 echo ""
 
 # 숫자 입력 즉시 실행
@@ -91,23 +102,25 @@ while true; do
         if [ "$idx" -ge 0 ] && [ "$idx" -lt "${#menu_files[@]}" ]; then
             break
         else
-            echo "범위를 벗어난 선택입니다. 다시 입력하세요."
+            echo "숫자를 다시 선택해주세요."
             continue
         fi
     else
-        echo "잘못된 입력입니다. 숫자나 'q'를 입력하세요."
+        echo "숫자나 'q'를 입력해주세요."
         continue
     fi
 done
 
 target="${menu_files[$idx]}"
 label="${menu_labels[$idx]}"
-echo "실행 중: $(basename "$target")"
 
-if declare -f confirm >/dev/null; then
-    if ! confirm "[$label] 실행할까요?"; then
-        echo "취소되었습니다."
-        exit 0
+# create-component.sh는 자체적으로 대화형이므로 확인 생략
+if [[ "$(basename "$target")" != "create-component.sh" && "$(basename "$target")" != "create-storybook.sh" ]]; then
+    if declare -f confirm >/dev/null; then
+        if ! confirm "[$label] 실행할까요?"; then
+            echo "취소되었습니다."
+            exit 0
+        fi
     fi
 fi
 

@@ -4,7 +4,7 @@ import pkg from './package.json' with { type: 'json' };
 const entryPath = './src/index.ts';
 const dist = `./dist`;
 
-const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})];
+const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
 
 export default defineConfig({
   entry: [entryPath],

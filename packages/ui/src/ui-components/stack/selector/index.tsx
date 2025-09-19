@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Popover, PopoverContent, PopoverTrigger } from '@/ui-primitives';
 import { type StackSelectorProps, type StackType } from '@/types/icon';
-import { cn } from '@/utils';
 import { StackTag } from '@/ui-components';
+import { Popover, PopoverContent, PopoverTrigger } from '@/ui-primitives';
+import { cn } from '@/utils';
 
 function StackSelector<T extends StackType>({
   stacks,
@@ -27,20 +27,20 @@ function StackSelector<T extends StackType>({
   const [selectedStacks, setSelectedStacks] = useState<StackType[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const currentValue = watch(name);
+  const currentValue: string = watch(name);
 
   // 초기값 설정
   useEffect(() => {
     if (currentValue) {
       try {
-        const stacksArray = JSON.parse(currentValue);
+        const stacksArray: string[] = JSON.parse(currentValue);
         const stackObjects = stacksArray.map((stackName: string) => {
           const stack = stacks.find(s => s.name === stackName);
-          return stack || { name: stackName, icon: '', color: '' };
+          return stack ?? { name: stackName, icon: '', color: '' };
         });
         setSelectedStacks(stackObjects);
       } catch {
-        console.info('Failed to parse stacks');
+        setSelectedStacks([]);
       }
     }
   }, [currentValue, stacks]);
@@ -48,7 +48,7 @@ function StackSelector<T extends StackType>({
   // 스택 추가
   const addStack = (stack: { name: string; icon: string; color: string }) => {
     if (selectedStacks.length >= maxStacks) {
-      alert(`최대 ${maxStacks}개의 스택만 선택할 수 있습니다.`);
+      alert(`최대 ${String(maxStacks)}개의 스택만 선택할 수 있습니다.`);
       return;
     }
 
@@ -103,7 +103,7 @@ function StackSelector<T extends StackType>({
           <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
               <button type="button" className="h-8 px-3 text-sm" onClick={() => setIsOpen(true)}>
-                + 스택 추가d
+                + 스택 추가
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-80 p-0" align="start">
@@ -114,7 +114,11 @@ function StackSelector<T extends StackType>({
                   placeholder={placeholder}
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className={cn(
+                    'w-full rounded-md border border-gray-300 px-3 py-2',
+                    'focus:ring-2 focus:ring-blue-500 focus:outline-none',
+                    'dark:border-gray-600 dark:bg-gray-700 dark:text-white',
+                  )}
                 />
               </div>
               <div className="max-h-60 overflow-y-auto">
@@ -129,7 +133,11 @@ function StackSelector<T extends StackType>({
                         key={stack.name}
                         type="button"
                         onClick={() => addStack(stack)}
-                        className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className={cn(
+                          'flex w-full items-center gap-3 rounded-md px-3 py-2 text-left',
+                          'transition-colors hover:bg-gray-100',
+                          'dark:hover:bg-gray-700',
+                        )}
                       >
                         <StackTag name={stack.name} icon={stack.icon} color={stack.color} size={16} showName />
                       </button>
