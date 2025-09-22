@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ProjectDetail, StackIcon, type ProjectDetailProps } from "@ui";
+import { ProjectPreview, StackIcon, type ProjectPreviewProps } from "@ui";
 
 const iconSize = 20;
 
 const meta = {
-  component: ProjectDetail,
+  component: ProjectPreview,
   argTypes: {},
-} satisfies Meta<typeof ProjectDetail>;
+} satisfies Meta<typeof ProjectPreview>;
 
 export default meta;
 
-type Story = StoryObj<ProjectDetailProps>;
+type Story = StoryObj<ProjectPreviewProps>;
 
 export const Primary: Story = {
-  render: (props: ProjectDetailProps) => (
+  render: (props: ProjectPreviewProps) => (
     <div className="mt-10">
-      <ProjectDetail {...props} />
+      <ProjectPreview {...props} />
     </div>
   ),
   name: "ProjectDetail",

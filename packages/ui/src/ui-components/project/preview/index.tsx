@@ -3,7 +3,7 @@ import { Markdown, Tooltip, Image } from '@/ui-primitives';
 
 type StackIconType = Record<string, JSX.Element>;
 
-interface ProjectDetailData {
+export interface ProjectDataProps {
   title: string;
   image: string;
   stacks: string;
@@ -12,12 +12,12 @@ interface ProjectDetailData {
   content: string;
 }
 
-export interface ProjectDetailProps {
-  data: ProjectDetailData;
+export interface ProjectPreviewProps {
+  data: ProjectDataProps;
   stackIcons: StackIconType;
 }
 
-export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
+export function ProjectPreview({ data, stackIcons }: ProjectPreviewProps) {
   if (typeof data === 'undefined') return null;
 
   const { title, image, stacks, linkDemo, linkGithub, content } = data;
@@ -50,4 +50,4 @@ export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
   );
 }
 
-export default ProjectDetail;
+export default ProjectPreview;
