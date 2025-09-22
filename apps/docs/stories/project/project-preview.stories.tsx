@@ -18,7 +18,7 @@ export const Primary: Story = {
       <ProjectPreview {...props} />
     </div>
   ),
-  name: "ProjectDetail",
+  name: "ProjectPreview",
   args: {
     data: {
       title: "포트폴리오 프로젝트",

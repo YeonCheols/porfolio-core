@@ -21,7 +21,6 @@ function Tooltip({ title, children }: TooltipProps) {
     visible: { opacity: 1, y: 0 },
   };
 
-  // 방법 2: cn 유틸리티를 사용한 클래스 분리
   const tooltipClasses = cn(
     'absolute bottom-full mb-2 hidden w-max max-w-xs rounded',
     'bg-neutral-500 px-2 py-1 text-xs font-medium text-neutral-100',

@@ -1,6 +1,5 @@
 import "../global.css";
 
-// 테마 설정을 위한 class 주입
 export const decorators = [
   (Story, context) => {
     const { backgrounds } = context.globals;
@@ -17,6 +16,7 @@ export const decorators = [
 ];
 
 export const parameters = {
+  layout: "centered",
   docs: {
     source: {
       type: "code",

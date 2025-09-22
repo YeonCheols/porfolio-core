@@ -1,5 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Tooltip, type TooltipProps } from '@ui';
+"use client";
+
+import type { Meta, StoryObj } from "@storybook/react";
+import { Tooltip, type TooltipProps } from "@ui";
 
 const meta = {
   component: Tooltip,
@@ -12,7 +14,9 @@ type Story = StoryObj<TooltipProps>;
 
 export const Primary: Story = {
   render: (props: TooltipProps) => <Tooltip {...props} />,
-  name: 'Tooltip',
-  args: {},
+  name: "Tooltip",
+  args: {
+    title: "Tooltip",
+    children: <div>Tooltip</div>,
+  },
 };
-
