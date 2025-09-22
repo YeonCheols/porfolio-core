@@ -1,6 +1,12 @@
 {
   "extends": "@yeoncheols/portfolio-core-tsconfig/react-app.json",
-  "include": [".", "stories/**/*.ts", "stories/**/*.tsx"],
+  "include": [
+    ".",
+    "stories/**/*.ts",
+    "stories/**/*.tsx",
+    "../../packages/ui/src/**/*.ts",
+    "../../packages/ui/src/**/*.tsx"
+  ],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",

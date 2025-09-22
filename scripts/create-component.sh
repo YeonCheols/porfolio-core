@@ -48,7 +48,7 @@ ui_dir="packages/ui/src/$folder_type/$component_name"
 mkdir -p "$ui_dir"
 
 # 컴포넌트 파일 생성
-echo "import { cn } from '../../utils/merge';
+echo "import { cn } from '@/utils';
 
 export interface ${pascal_name}Props {}
 

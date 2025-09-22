@@ -1,5 +1,5 @@
 import { ProjectLink } from '@/ui-components';
-import { Markdown, Tooltip } from '@/ui-primitives';
+import { Markdown, Tooltip, Image } from '@/ui-primitives';
 
 type StackIconType = Record<string, JSX.Element>;
 
@@ -39,7 +39,7 @@ export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
         <ProjectLink title={title} linkDemo={linkDemo} linkGithub={linkGithub} />
       </div>
       {image.startsWith('https') && (
-        <img src={image} width={800} height={400} alt={title} className="hover:scale-105" />
+        <Image src={image} width={800} height={400} alt={title} className="hover:scale-105" />
       )}
       {content ? (
         <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300 text-neutral-700">
