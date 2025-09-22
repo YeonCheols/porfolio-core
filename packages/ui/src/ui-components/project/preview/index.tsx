@@ -1,9 +1,9 @@
 import { ProjectLink } from '@/ui-components';
-import { Markdown, Tooltip } from '@/ui-primitives';
+import { Markdown, Tooltip, Image } from '@/ui-primitives';
 
 type StackIconType = Record<string, JSX.Element>;
 
-interface ProjectDetailData {
+export interface ProjectDataProps {
   title: string;
   image: string;
   stacks: string;
@@ -12,12 +12,12 @@ interface ProjectDetailData {
   content: string;
 }
 
-export interface ProjectDetailProps {
-  data: ProjectDetailData;
+export interface ProjectPreviewProps {
+  data: ProjectDataProps;
   stackIcons: StackIconType;
 }
 
-export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
+export function ProjectPreview({ data, stackIcons }: ProjectPreviewProps) {
   if (typeof data === 'undefined') return null;
 
   const { title, image, stacks, linkDemo, linkGithub, content } = data;
@@ -39,7 +39,7 @@ export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
         <ProjectLink title={title} linkDemo={linkDemo} linkGithub={linkGithub} />
       </div>
       {image.startsWith('https') && (
-        <img src={image} width={800} height={400} alt={title} className="hover:scale-105" />
+        <Image src={image} width={800} height={400} alt={title} className="hover:scale-105" />
       )}
       {content ? (
         <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300 text-neutral-700">
@@ -50,4 +50,4 @@ export function ProjectDetail({ data, stackIcons }: ProjectDetailProps) {
   );
 }
 
-export default ProjectDetail;
+export default ProjectPreview;
