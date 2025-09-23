@@ -25,6 +25,7 @@ const config = {
         desktop: '1200px',
       },
       colors: {
+        default: '#3d444d',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
