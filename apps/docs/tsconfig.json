@@ -4,6 +4,7 @@
     ".",
     "stories/**/*.ts",
     "stories/**/*.tsx",
+    "types/**/*.d.ts",
     "../../packages/ui/src/**/*.ts",
     "../../packages/ui/src/**/*.tsx"
   ],
