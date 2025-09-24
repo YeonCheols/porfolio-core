@@ -15,7 +15,7 @@ type Story = StoryObj<MarkdownProps>;
 export const Primary: Story = {
   render: (props: MarkdownProps) => {
     return (
-      <div className="m-5">
+      <div className="m-6">
         <Markdown {...props} />
       </div>
     );
