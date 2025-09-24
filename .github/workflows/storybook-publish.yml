@@ -43,12 +43,12 @@ jobs:
       - name: Setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22
           cache: "pnpm"
 
       # 4. 의존성 설치 및 캐싱
       - name: Package dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       # 5. Storybook 빌드
       - name: Build Storybook
