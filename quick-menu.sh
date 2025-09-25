@@ -18,13 +18,13 @@ derive_menu_name() {
     case "$base" in
     publish-storybook.sh)
         if grep -qi 'storybook' "$file"; then
-            echo "스토리북 테스트 서버 배포"
+            echo "스토리북 서버 배포"
             return
         fi
         ;;
     publish-package.sh)
         if grep -qi 'changeset' "$file"; then
-            echo "패키지 퍼블리시(Changesets)"
+            echo "패키지 배포"
             return
         fi
         ;;
@@ -34,10 +34,6 @@ derive_menu_name() {
         ;;
     create-storybook.sh)
         echo "스토리북 컴포넌트 생성"
-        return
-        ;;
-    update-package.sh)
-        echo "패키지 의존성 업데이트"
         return
         ;;
     esac
