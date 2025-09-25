@@ -4,6 +4,7 @@ import { StackSelector, type StackSelectorProps, type StackType } from "@ui";
 
 const meta = {
   component: StackSelector,
+  title: "Stack/StackSelector",
   argTypes: {},
 } satisfies Meta<typeof StackSelector>;
 
