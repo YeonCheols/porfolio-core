@@ -16,5 +16,6 @@ export default defineConfig({
   minify: true,
   sourcemap: false,
   external,
-  onSuccess: 'tailwindcss -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
+  onSuccess: 'npx @tailwindcss/cli@latest -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
+  // onSuccess: 'tailwindcss -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
 });

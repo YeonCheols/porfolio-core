@@ -15,10 +15,3 @@
   background-color: var(--color-light);
   color: var(--color-dark);
 }
-
-* {
-  @apply border-border;
-}
-body {
-  @apply bg-background text-foreground;
-}

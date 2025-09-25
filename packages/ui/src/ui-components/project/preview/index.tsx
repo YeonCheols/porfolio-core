@@ -36,7 +36,7 @@ export function ProjectPreview({ data, stackIcons }: ProjectPreviewProps) {
             ))}
           </div>
         </div>
-        <ProjectLink title={title} linkDemo={linkDemo} linkGithub={linkGithub} />
+        <ProjectLink linkDemo={linkDemo} linkGithub={linkGithub} />
       </div>
       {image.startsWith('https') && (
         <Image src={image} width={800} height={400} alt={title} className="hover:scale-105" />
