@@ -3,6 +3,7 @@ import { Image, type ImageProps } from "@ui";
 
 const meta = {
   component: Image,
+  title: "Common/Image",
   argTypes: {},
 } satisfies Meta<typeof Image>;
 

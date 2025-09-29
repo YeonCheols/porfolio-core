@@ -5,6 +5,7 @@ const iconSize = 20;
 
 const meta = {
   component: ProjectPreview,
+  title: "Project/ProjectPreview",
   argTypes: {},
 } satisfies Meta<typeof ProjectPreview>;
 

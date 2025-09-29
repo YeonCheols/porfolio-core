@@ -3,6 +3,7 @@ import { StackTag, type StackTagProps } from "@ui";
 
 const meta = {
   component: StackTag,
+  title: "Stack/StackTag",
   argTypes: {},
 } satisfies Meta<typeof StackTag>;
 

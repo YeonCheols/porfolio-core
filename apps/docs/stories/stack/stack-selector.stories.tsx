@@ -4,6 +4,7 @@ import { StackSelector, type StackSelectorProps, type StackType } from "@ui";
 
 const meta = {
   component: StackSelector,
+  title: "Stack/StackSelector",
   argTypes: {},
 } satisfies Meta<typeof StackSelector>;
 
@@ -13,13 +14,17 @@ type Story = StoryObj<StackSelectorProps<StackType>>;
 
 export const Primary: Story = {
   render: (props: StackSelectorProps<StackType>) => {
-    const methods = useForm();
+    function StackSelectorWrapper(): JSX.Element {
+      const methods = useForm();
 
-    return (
-      <FormProvider {...methods}>
-        <StackSelector {...props} />
-      </FormProvider>
-    );
+      return (
+        <FormProvider {...methods}>
+          <StackSelector {...props} />
+        </FormProvider>
+      );
+    }
+
+    return <StackSelectorWrapper />;
   },
   args: {
     name: "StackSelector",

@@ -5,6 +5,7 @@ import readmeContent from "../../../../README.md?raw";
 
 const meta = {
   component: Markdown,
+  title: "Common/Markdown",
   argTypes: {},
 } satisfies Meta<typeof Markdown>;
 

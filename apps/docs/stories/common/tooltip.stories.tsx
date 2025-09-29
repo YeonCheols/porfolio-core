@@ -5,6 +5,7 @@ import { Tooltip, type TooltipProps } from "@ui";
 
 const meta = {
   component: Tooltip,
+  title: "Common/Tooltip",
   argTypes: {},
 } satisfies Meta<typeof Tooltip>;
 

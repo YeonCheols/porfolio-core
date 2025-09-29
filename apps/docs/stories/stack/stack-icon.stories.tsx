@@ -3,6 +3,7 @@ import { StackIcon, type StackIconProps } from "@ui";
 
 const meta = {
   component: StackIcon,
+  title: "Stack/StackIcon",
   argTypes: {},
 } satisfies Meta<typeof StackIcon>;
 

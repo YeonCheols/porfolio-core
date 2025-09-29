@@ -3,6 +3,7 @@ import { ProjectLink, type ProjectLinkProps } from "@ui";
 
 const meta = {
   component: ProjectLink,
+  title: "Project/ProjectLink",
   argTypes: {},
 } satisfies Meta<typeof ProjectLink>;
 
