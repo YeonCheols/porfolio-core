@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.3
+
+### Patch Changes
+
+- code-block 동적 import
+
 ## 0.3.2
 
 ### Patch Changes
