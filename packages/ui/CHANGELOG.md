@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- 프로젝트 컴포넌트 배포
+
 ## 0.2.0
 
 ### Minor Changes
