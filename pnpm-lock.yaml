@@ -32,6 +32,9 @@ importers:
       react-hook-form:
         specifier: ^7.56.4
         version: 7.60.0(react@18.2.0)
+      react-markdown:
+        specifier: ^8.0.7
+        version: 8.0.7(@types/react@18.3.23)(react@18.2.0)
     devDependencies:
       '@storybook/addon-actions':
         specifier: ^8.2.6

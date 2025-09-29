@@ -55,6 +55,7 @@ import { ${pascal_name}, type ${pascal_name}Props } from '@ui';
 
 const meta = {
   component: ${pascal_name},
+  title: '${folder_path}/${pascal_name}',
   argTypes: {},
 } satisfies Meta<typeof ${pascal_name}>;
 
