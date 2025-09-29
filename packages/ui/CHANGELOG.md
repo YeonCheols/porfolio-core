@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.1
+
+### Patch Changes
+
+- code-block 컴포넌트 import 경로 변경
+
 ## 0.3.0
 
 ### Minor Changes
