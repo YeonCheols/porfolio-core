@@ -16,11 +16,6 @@ export default defineConfig({
   minify: true,
   sourcemap: false,
   external,
-  esbuildOptions(options) {
-    options.jsx = 'transform';
-    options.jsxFactory = 'React.createElement';
-    options.jsxFragment = 'React.Fragment';
-  },
   onSuccess: 'npx @tailwindcss/cli@latest -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
   // onSuccess: 'tailwindcss -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
 });
