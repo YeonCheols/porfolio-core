@@ -6,17 +6,17 @@ import { HiCheckCircle as CheckIcon, HiOutlineClipboardCopy as CopyIcon } from '
 import { type CodeProps } from 'react-markdown/lib/ast-to-react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 // @ts-ignore
-import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css.js';
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css.js';
 // @ts-ignore
-import diff from 'react-syntax-highlighter/dist/cjs/languages/prism/diff.js';
+import diff from 'react-syntax-highlighter/dist/esm/languages/prism/diff.js';
 // @ts-ignore
-import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript.js';
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript.js';
 // @ts-ignore
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx.js';
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx.js';
 // @ts-ignore
-import typescript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript.js';
+import typescript from 'react-syntax-highlighter/dist/esm/languages/prism/typescript.js';
 // @ts-ignore
-import a11yDark from 'react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark.js';
+import a11yDark from 'react-syntax-highlighter/dist/esm/styles/prism/a11y-dark.js';
 import { useCopyToClipboard } from 'usehooks-ts';
 import { cn } from '@/utils';
 

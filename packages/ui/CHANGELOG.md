@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.6
+
+### Patch Changes
+
+- 동적 import 옵션 제거
+
 ## 0.3.5
 
 ### Patch Changes
