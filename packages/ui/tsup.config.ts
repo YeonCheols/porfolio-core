@@ -7,7 +7,9 @@ const dist = `./dist`;
 const external = [
   ...Object.keys(pkg.dependencies),
   ...Object.keys(pkg.peerDependencies),
+  'react/jsx-runtime',
   'react-icons',
+  'react-icons/*',
   'react-icons/ai',
   'react-icons/bi',
   'react-icons/bs',

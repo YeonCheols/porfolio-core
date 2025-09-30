@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { HiCheckCircle as CheckIcon, HiOutlineClipboardCopy as CopyIcon } from 'react-icons/hi';
 import { type CodeProps } from 'react-markdown/lib/ast-to-react';
@@ -97,11 +96,4 @@ function CodeBlock({ className = '', children, inline, ...props }: CodeProps) {
   );
 }
 
-function LoadingPlaceholder() {
-  return <div className="mt-12 mb-12 h-36 w-full" />;
-}
-
-export default dynamic(() => Promise.resolve(CodeBlock), {
-  ssr: false,
-  loading: LoadingPlaceholder,
-});
+export default CodeBlock;
