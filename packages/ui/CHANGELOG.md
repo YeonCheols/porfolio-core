@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.7
+
+### Patch Changes
+
+- tsup esbuildOptions 제거
+
 ## 0.3.6
 
 ### Patch Changes
