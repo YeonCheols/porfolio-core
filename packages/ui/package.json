@@ -3,8 +3,8 @@
   "version": "0.3.3",
   "sideEffects": false,
   "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.cjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "files": [
@@ -13,8 +13,14 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./ui-tailwind.min.css": "./dist/ui-tailwind.min.css"
   },

@@ -16,9 +16,9 @@ export default defineConfig({
   minify: true,
   sourcemap: false,
   external,
-  jsx: 'automatic',
   esbuildOptions(options) {
     options.jsx = 'automatic';
+    options.jsxImportSource = 'react';
   },
   onSuccess: 'npx @tailwindcss/cli@latest -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
   // onSuccess: 'tailwindcss -i ./src/style/global.css -o ./dist/ui-tailwind.min.css --minify',
