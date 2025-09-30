@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.5
+
+### Patch Changes
+
+- tsup 의존성 번들 미포함
+
 ## 0.3.4
 
 ### Patch Changes
