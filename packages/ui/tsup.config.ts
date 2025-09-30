@@ -4,7 +4,11 @@ import pkg from './package.json' with { type: 'json' };
 const entryPath = './src/index.ts';
 const dist = `./dist`;
 
-const external = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)];
+const external = [
+  ...Object.keys(pkg.peerDependencies),
+  // react-syntax-highlighter는 번들에 포함시켜야 함
+  ...Object.keys(pkg.dependencies).filter(dep => dep !== 'react-syntax-highlighter'),
+];
 
 export default defineConfig({
   entry: [entryPath],
