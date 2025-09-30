@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.8
+
+### Patch Changes
+
+- dynamic import Next 코드 제거
+
 ## 0.3.7
 
 ### Patch Changes
