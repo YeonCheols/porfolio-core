@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.10
+
+### Patch Changes
+
+- ProjectPreview 조건부 아이콘 랜더링
+
 ## 0.3.9
 
 ### Patch Changes
