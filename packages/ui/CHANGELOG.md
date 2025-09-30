@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.9
+
+### Patch Changes
+
+- package.json 진입점 변경
+
 ## 0.3.8
 
 ### Patch Changes
