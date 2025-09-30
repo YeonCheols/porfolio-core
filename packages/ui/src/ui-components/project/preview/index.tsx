@@ -31,7 +31,13 @@ export function ProjectPreview({ data, stackIcons }: ProjectPreviewProps) {
           <div className="flex flex-wrap items-center gap-3">
             {stacksArray.map((stack: string) => (
               <div key={stack}>
-                <Tooltip title={stack}>{stackIcons[stack]}</Tooltip>
+                <Tooltip title={stack}>
+                  {stack in stackIcons ? (
+                    stackIcons[stack]
+                  ) : (
+                    <div className="w-5 h-5 rounded bg-gray-200 dark:bg-gray-700" title={stack} />
+                  )}
+                </Tooltip>
               </div>
             ))}
           </div>
