@@ -19,6 +19,24 @@ import a11yDark from 'react-syntax-highlighter/dist/esm/styles/prism/a11y-dark.j
 import { useCopyToClipboard } from 'usehooks-ts';
 import { cn } from '@/utils';
 
+// children을 안전하게 문자열로 변환하는 함수
+const safeStringify = (value: any): string => {
+  if (typeof value === 'string') {
+    return value;
+  }
+  if (typeof value === 'number' || typeof value === 'boolean') {
+    return String(value);
+  }
+  if (value && typeof value === 'object') {
+    try {
+      return JSON.stringify(value);
+    } catch {
+      return '[Object]';
+    }
+  }
+  return String(value);
+};
+
 const languages = {
   javascript: 'javascript',
   typescript: 'typescript',
@@ -61,7 +79,7 @@ function CodeBlock({ className = '', children, inline, ...props }: CodeProps) {
             className="absolute top-3 right-3 rounded-lg border border-neutral-700 p-2 hover:bg-neutral-800"
             type="button"
             aria-label="Copy to Clipboard"
-            onClick={() => handleCopy(children.toString())}
+            onClick={() => handleCopy(safeStringify(children))}
             data-umami-event="Click Copy Code"
           >
             {!isCopied ? (
@@ -84,7 +102,7 @@ function CodeBlock({ className = '', children, inline, ...props }: CodeProps) {
             language={match?.groups?.language ?? 'javascript'}
             wrapLongLines
           >
-            {String(children).replace(/\n$/, '')}
+            {safeStringify(children).replace(/\n$/, '')}
           </SyntaxHighlighter>
         </div>
       ) : (
