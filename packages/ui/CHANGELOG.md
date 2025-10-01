@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- build error patch version 배포
+
 ## 0.3.11
 
 ### Patch Changes
