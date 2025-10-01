@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.3.11
+
+### Patch Changes
+
+- 빌드 오류 컴포넌트 수정
+
 ## 0.3.10
 
 ### Patch Changes
