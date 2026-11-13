@@ -18,9 +18,11 @@ import * as SiIcons from 'react-icons/si';
 import * as TbIcons from 'react-icons/tb';
 import * as VscIcons from 'react-icons/vsc';
 import * as WiIcons from 'react-icons/wi';
+import * as ProjectIcons from './project-icons';
 
 // 아이콘 라이브러리 매핑
 export const iconLibraries = {
+  Pf: ProjectIcons,
   Si: SiIcons,
   Bs: BsIcons,
   Fa: FaIcons,

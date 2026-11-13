@@ -36,6 +36,7 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   target: 'esnext',
   dts: true,
+  loader: { '.png': 'dataurl', '.svg': 'dataurl' },
   outDir: dist,
   clean: true,
   minify: true,

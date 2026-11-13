@@ -1,5 +1,12 @@
 # @yeoncheols/portfolio-core-docs
 
+## 0.1.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @yeoncheols/portfolio-core-ui@0.5.0
+
 ## 0.1.15
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeoncheols/portfolio-core-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- Zustand와 VisActor의 실제 브랜드 아이콘을 Pf 라이브러리에 등록합니다. 로고 원본을 패키지에 포함해 외부 이미지 호출 없이 기존 StackIcon과 아이콘 선택 경로에서 사용합니다.
+
 ## 0.4.0
 
 ### Minor Changes
